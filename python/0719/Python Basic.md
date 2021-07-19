@@ -37,7 +37,7 @@
 
 > Python이 설치된 환경에서는 기본적으로 활용 가능하나 디버깅 및 코드 편집, 반복 실행이 어려움
 
-![image-20210719232531041](Python 기초.assets/image-20210719232531041.png)
+![image-20210719232854457](Python Basic.assets/image-20210719232854457.png)
 
 ### Python Jupyter Lab
 
@@ -93,5 +93,4 @@ def foo():
   ⋅ 기본적으로 파이썬에서는 세미콜론(;)을 작성하지 않음  
   ⋅ 한 줄로 표기할 때는 세미콜론(;)를 작성하여 표기할 수 있음
 
-![image-20210719232620686](Python 기초.assets/image-20210719232620686.png)
-
+![image-20210719232836595](Python Basic.assets/image-20210719232836595.png)

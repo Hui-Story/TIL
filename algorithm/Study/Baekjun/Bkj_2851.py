@@ -7,3 +7,5 @@ for i in N:
     else:
         print(score)
         break
+else:
+    print(score)

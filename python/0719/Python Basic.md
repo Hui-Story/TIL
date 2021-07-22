@@ -94,3 +94,81 @@ def foo():
   ⋅ 한 줄로 표기할 때는 세미콜론(;)를 작성하여 표기할 수 있음
 
 ![image-20210719232836595](Python Basic.assets/image-20210719232836595.png)
+
+
+
+## 변수와 식별자
+
+### 변수
+
+##### ⋅ 변수는 할당 연산자(=)를 통해 값을 할당 (assignment)
+
+##### ⋅ type() : 변수에 할당된 값의 타입
+
+##### ⋅ id() : 변수에 할당된 값(객체)의 고유한 아이덴티티(identity) 값이며, 메모리 주소
+
+![image-20210722232623662](Python Basic.assets/image-20210722232623662.png)
+
+### 할당 연산자(=)
+
+##### ⋅ 같은 값을 동시에 할당할 수 있음
+
+![image-20210722232806940](Python Basic.assets/image-20210722232806940.png)
+
+##### ⋅ 다른 값을 동시에 할당할 수 있음 (multiple assignment)
+
+![image-20210722232913098](Python Basic.assets/image-20210722232913098.png)
+
+### 값 swap
+
+##### ⋅ x = 10, y = 20 일 때, 각각 값을 바꿔서 저장하는 코드
+
+![image-20210722233011423](Python Basic.assets/image-20210722233011423.png)
+
+### 식별자 (identifiers)
+
+##### ⋅ 변수, 함수, 모듈, 클래스 등을 식별하는데 사용하는 이름(name)
+
+##### ⋅ 규칙
+
+> ⋅ 식별자의 이름은 영문 알파벳, 언더스코어(_), 숫자로 구성  
+> ⋅ 첫 글자에 숫자가 올 수 없음  
+> ⋅ 길이제한이 없고, 대소문자를 구별  
+> ⋅ 다음의 키워드(keywords)는 예약어(reserved words)로 사용할 수 없음
+
+```
+False, None, True, and, as, assert, async, await, break, class, continue,
+def, del, elif, else, except, finally, for, from, global, if, import, in,
+is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield
+```
+
+##### ⋅ 내장함수나 모듈 등의 이름으로도 만들면 안됨
+
+![image-20210722233417715](Python Basic.assets/image-20210722233417715.png)
+
+
+
+## 데이터 타입
+
+### 숫자 (int)
+
+##### ⋅ 모든 정수의 타입은 int
+
+  ⋅ Python 3부터는 long 타입은 없고, 모두 int로 표기  
+  ⋅ 여타 프로그래밍 언어, Python 2에서는 OS기준 32/64비트
+
+##### ⋅ 매우 큰 수를 나타낼 때 오버플로가 발생하지 않음
+
+  ⋅ 오버플로(overflow) : 데이터 타입별로 사용할 수 있는 메모리의 크기를 넘어서는 상황  
+  ⋅ Arbitrary precision arithmetic(임의 정밀도 산술)을 통해 고정된 형태의 메모리가 아닌 가용 메모리들을 활용하여 모든 수 표현에 활용
+
+![image-20210722233816111](Python Basic.assets/image-20210722233816111.png)
+
+##### ⋅ 진수 표현
+
+  ⋅ 2진수 : 0b  
+  ⋅ 8진수 : 0o  
+  ⋅ 16진수 : 0x
+
+![image-20210722233925587](Python Basic.assets/image-20210722233925587.png)
+

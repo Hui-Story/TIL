@@ -2,10 +2,10 @@ N = int(input())
 numbers = list(int(input()) for _ in range(N))
 
 for i in range(len(numbers)):
-    for j in range(len(numbers)):
-        if numbers[i] < numbers[j]:
-            numbers[i], numbers[j] = numbers[j], numbers[i]
+    for j in range(1, len(numbers)-i):
+        if numbers[j-1] > numbers[j]:
+            numbers[j-1], numbers[j] = numbers[j], numbers[j-1]
         else:
             continue
-
-print(numbers)
+for i in numbers:
+    print(i)

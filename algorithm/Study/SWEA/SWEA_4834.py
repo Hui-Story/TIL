@@ -7,7 +7,13 @@ for i in range(T):
     ai.append(input())
 
 for i in range(T):
-    C = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    C = [0] * 10
     for a in range(int(N[i])):
-        C[int(ai[i][a])] = C[int(ai[i][a])] + 1
-    print(f'#{i+1} {max(C)}')
+        C[int(ai[i][a])] += 1
+    count = 0
+    num = 0
+    for b in range(len(C)):
+        if C[b] >= count:
+            count = C[b]
+            num = b
+    print(f'#{i+1} {num} {max(C)}')

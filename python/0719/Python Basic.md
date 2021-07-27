@@ -37,7 +37,7 @@
 
 > Python이 설치된 환경에서는 기본적으로 활용 가능하나 디버깅 및 코드 편집, 반복 실행이 어려움
 
-![image-20210727133937481](Python Basic.assets/image-20210727133937481.png)
+![image-20210727133937481](./Python Basic.assets/image-20210727133937481.png)
 
 ### Python Jupyter Lab
 

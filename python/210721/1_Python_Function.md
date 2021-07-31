@@ -193,3 +193,253 @@ print(type(greeting()))
 
 ### 위치 인자 (Positional Arguments)
 
+##### · 기본적으로 함수 호출 시 인자는 위치에 따라 함수 내에 전달됨
+
+```python
+def add(x, y):
+	return x + y
+	
+add(2, 3)
+
+"""
+def add(x, y):
+	x = 2; y = 3
+	return x + y
+"""
+```
+
+### 기본 인자 값 (Default Arguments Values)
+
+##### · 기본값을 지정하여 함수 호출 시 인자 값을 설정하지 않도록 함
+
+​	· 정의된 것 보다 더 적은 개수의 인자들로 호출 될 수 있음
+
+```python
+def add(x, y=0):
+	return x + y
+	
+add(2)
+
+"""
+def add(x, y=0):
+	x = 2
+	return x + y
+"""
+```
+
+### 키워드 인자 (Keyword Arguments)
+
+##### · 직접 변수의 이름으로 특정 인자를 전달할 수 있음
+
+##### · 키워드 인자 다음에 위치 인자를 활용할 수 없음
+
+```python
+def add(x, y):
+	return x + y
+	
+add(x=2, y=5)
+add(2, y=5)
+```
+
+### 가변 인자 리스트 (Arbitrary Argument Lists)
+
+##### · 함수가 임의의 개수 인자로 호출될 수 있도록 지정
+
+##### · 인자들은 튜플로 묶여 처리되며, 매개변수에 *을 붙여 표현
+
+```python
+def add(*args):
+	for arg in args:
+		print(arg)
+		
+add(2)
+add(2, 3, 4, 5)
+```
+
+### 가변 키워드 인자 (Arbitrary Keyword Arguments)
+
+##### · 함수가 임의의 개수 인자를 키워드 인자로 호출될 수 있도록 지정
+
+##### · 인자들은 딕셔너리로 묶여 처리되며, 매개변수에 **를 붙여 표현
+
+```python
+def family(**kwargs):
+	for key, value in kwargs:
+		print(key, ":", value)
+		
+family(father='John', mother='Jane', me='John Jr.')
+```
+
+### 함수 정의 주의 사항
+
+##### · 기본 인자 값을 가지는 인자 다음에 기본 값이 없는 인자로 정의할 수 없음
+
+```python
+def greeting(name='john doe', age):
+	pass
+```
+
+> SyntaxError :  non-default  argument  follows  default  argument
+
+##### · 키워드 인자 다음에 위치 인자를 활용할 수 없음
+
+```python
+add(x=3, 5)
+```
+
+> SyntaxError :  positional  argument  follows  keyword  argument
+
+
+
+## 함수 Scope
+
+##### · 함수는 코드 내부에 지역 스코프(locad scope)를 생성하며, 그 외의 공간인 전역 스코프(global scope)로 구분
+
+> #### · 스코프
+>
+> ​	· 전역 스코프 (global scope)  :  코드 어디에서든 참조할 수 있는 공간  
+> ​	· 지역 스코프 (local scope)  :  함수가 만든 스코프.  함수 내부에서만 참조 가능
+>
+> #### · 변수
+>
+> ​	· 전역 변수 (global variable)  :  전역 스코프에 정의된 변수  
+> ​	· 지역 변수 (local variable)  :  지역 스코프에 정의된 변수
+
+```python
+# 함수 스코프
+def func():
+	a = 20
+	print('local', a)
+	
+func()
+print('global', a)
+```
+
+> local  20  
+> NameError :  name  'a'  is  not  defined
+
+  →  a는 함수 내에서 할당 되었으므로, Local scope에서만 존재 (함수가 종료되면 사라짐)
+
+![image-20210730133058484](1_Python_Function.assets/image-20210730133058484.png)
+
+### 변수 수명주기 (lifecycle)
+
+##### · 빌트인 스코프 (built-in scope)
+
+​	· 파이썬이 실행된 이후부터 영원히 유지
+
+##### · 전역 스코프 (global scope)
+
+​	· 모듈이 호출된 시점 이후 혹은 인터프리터가 끝날 때까지 유지
+
+##### · 지역(함수) 스코프 (local scope)
+
+​	· 함수가 호출될 때 생성되고, 함수가 종료될 때까지 유지
+
+### 이름 검색 규칙 (Name Resolution)
+
+##### · 파이썬에서 사용되는 이름(식별자)들은 이름공간(namespace)에 저장되어 있음
+
+##### · 아래와 같은 순서로 이름을 찾아나가며, LEGB Rule이라고 부름
+
+> ·  Local scope  :  함수  
+> ·  Enclosed scope  :  특정 함수의 상위 함수  
+> ·  Global scope  :  함수 밖의 변수, Import 모듈  
+> ·  Built-in scope  :  파이썬 안에 내장되어 있는 함수 또는 속성
+
+##### · 즉, 함수 내에서는 바깥 스코프의 변수에 접근 가능하나 수정은 할 수 없음
+
+```python
+# LEGB 예시
+a = 0
+b = 1
+def enclosed():
+	a = 10
+	c = 3
+	def local(c):
+		print(a, b, c)
+	local(300)
+	print(a, b, c)
+enclosed()
+print(a, b)
+```
+
+> 10  1  300  
+> 10  1  3  
+> 0  1
+
+```python
+# LEGB 예시
+print(sum)
+print(sum(range(2)))
+sum = 5
+print(sum)
+print(sum(range(2)))
+```
+
+> <built-in function sum>  
+> 1  
+> 5  
+> TypeError :  'int'  object  is  not  callable
+
+  →  Global scope 이름공간의 sum 변수에 값 5가 할당  
+       이후 global scope에서 sum은 LEGB에 의해 Built-in scope의 내장 함수보다 5가 먼저 탐색
+
+### global
+
+##### · 현재 코드 블록 전체에 적용되며, 나열된 식별자(이름)들이 전역 변수임을 나타냄
+
+​	· global에 나열된 이름은 같은 코드 블록에서 global 앞에 등장할 수 없음  
+​	· global에 나열된 이름은 매개변수, for 루프 대상, 클래스/함수 정의 등으로 정의되지 않아야 함
+
+```python
+# 예시 - 함수 내부에서 글로벌 변수 변경하기
+a = 10
+def func1():
+	global a
+	a = 3
+	
+print(a)
+func1()
+print(a)
+```
+
+> 10  
+> 3
+
+  →  global 키워드를 사용하지 않으면, Local scope에 a 변수가 생성됨
+
+```python
+# global 주의 사항
+a = 10
+def func1():
+	print(a)
+	global a
+	a = 3
+	
+print(a)
+func1()
+print(a)
+```
+
+> SyntaxError :  name  'a'  is  used  prior  to  global  declaration
+
+```python
+# global 주의 사항 2
+a = 10
+def func1():
+	global a
+	a = 3
+	
+print(a)
+func1(3)
+print(a)
+```
+
+> SyntaxError :  name  'a'  is  parameter  and  global
+
+### nonlocal
+
+##### · 전역을 제외하고 가장 가까운 (둘러 싸고 있는) 스코프의 변수를 연결하도록 함
+
+​	· 

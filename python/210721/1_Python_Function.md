@@ -442,4 +442,114 @@ print(a)
 
 ##### · 전역을 제외하고 가장 가까운 (둘러 싸고 있는) 스코프의 변수를 연결하도록 함
 
-​	· 
+​	· nonlocal에 나열된 이름은 같은 코드 블록에서 nonlocal 앞에 등장할 수 없음  
+​	· nonlocal에 나열된 이름은 매개변수, for 루프 대상, 클래스/함수 정의 등으로 정의되지 않아야 함
+
+```python
+# 예시 - enclosed scope(func1)의 변수 x의 변경
+x = 0
+def func1():
+    x = 1
+    def func2():
+        nonlocal x
+        x = 2
+    func2()
+    print(x)
+func1()
+print(x)
+```
+
+> 2  
+> 0
+
+##### · global과는 달리 이미 존재하는 이름과의 연결만 가능함
+
+```python
+# global - 선언된 적 없는 변수의 활용
+def func1():
+	global out
+	out = 3
+
+func1()
+print(out)
+```
+
+> 3
+
+```python
+# nonlocal - 선언된 적 없는 변수의 활용
+def func1():
+	def func2():
+		nonlocal y
+		y = 2
+	func2()
+	print(y)
+	
+func1()
+```
+
+> SyntaxError :  no  binding  for  nonlocal  'y'  found
+
+### 주의
+
+##### · 기본적으로 함수에서 선언된 변수는 Local scope에 생성되며, 함수 종료 시 사라짐
+
+##### · 해당 스코프에 변수가 없는 경우 LEGB rule에 의해 이름을 검색함
+
+​	· 변수에 접근은 가능하지만, 해당 변수를 수정할 수는 없음  
+​	· 값을 할당하는 경우 해당 스코프의 이름공간에 새롭게 생성되기 때문  
+​	· 단, 함수 내에서 필요한 상위 스코프 변수는 인자로 넘겨서 활용할 것 (클로저* 제외)  
+​	  (클로저 : 어떤 함수의 내부에 중첩된 형태로써 외부 스코프 변수에 접근 가능한 함수)
+
+##### · 상위 스코프에 있는 변수를 수정하고 싶다면 global, nonlocal 키워드를 활용 가능
+
+​	· 단, 코드가 복잡해지면서 변수의 변경을 추적하기 어렵고, 예기치 못한 오류가 발생  
+​	· 가급적 사용하지 않는 것을 권장. 함수로 값을 바꾸고자 한다면 항상 인자로 넘기고 리턴 값 사용을 추천
+
+
+
+## 재귀 함수
+
+##### · 자기 자신을 호출하는 함수
+
+##### · 무한한 호출을 목표로 하는 것이 아니며, 알고리즘 설계 및 구현에서 유용하게 활용
+
+​	· 알고리즘 중 재귀 함수로 로직을 표현하기 쉬운 경우가 있음 (ex. 점화식)  
+​	· 변수의 사용이 줄어들며, 코드의 가독성이 높아짐
+
+##### · 1개 이상의 base case(종료되는 상황)가 존재하고, 수렴하도록 작성
+
+​	· 같은 문제를 다른 Input 값을 통해서 해결하는 과정  
+​		· 큰 문제를 해결하기 위해 작은 문제로 좁히고, 작은 문제의 해답을 이용하여 해결  
+​	· 작은 문제는 base case에 도달하여 재귀 함수가 끝날 수 있도록 함
+
+```python
+# 실습 - 팩토리얼 구현
+def factorial(n):
+	if n == 1:
+		return n
+	else:
+		return n * factorial(n-1)
+		
+print(factorial(4))
+```
+
+> 24
+
+### 재귀 함수 주의 사항
+
+##### · 재귀 함수는 base case에 도달할 때까지 함수를 호출함
+
+##### · 메모리 스택이 넘치게 되면(stack overflow) 프로그램이 동작하지 않게 됨
+
+##### · 파이썬에서는 최대 재귀 깊이(maximum recursion depth)가 1,000번으로, 호출 횟수가 이를 넘어가게 되면 Recursion Error 발생
+
+```python
+def hello():
+	hello()
+	
+hello()
+```
+
+> RecursionError :  maximum  recursion  depth  exceeded
+

@@ -1,11 +1,17 @@
-T = int(input())
+import sys
 
-for case in range(T):
-    N = int(input())
+T = sys.stdin.readline()
+
+for case in range(int(T)):
+    N = sys.stdin.readline()
     score = {}
-    for Person in range(N):
-        input_score = list(map(int,input().split()))
-        score[input_score[0]] = input_score[1]
-    for i in range(1, N+1):
-        for j in range(1, i+1):
-            
+    for Person in range(int(N)):
+        score_1, score_2 = sys.stdin.readline().split()
+        score[int(score_1)] = int(score_2)
+    total = 1
+    left_score = score[1]
+    for i in range(2, int(N)+1):
+        if score[i] < left_score:
+            left_score = score[i]
+            total += 1
+    print(total)

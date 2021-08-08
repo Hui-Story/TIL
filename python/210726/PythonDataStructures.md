@@ -340,11 +340,558 @@ print(cafe)
 
 > [ ' start ' ,  ' starbucks ' ,  ' tomntoms ' ,  ' hollys ' ]
 
-```
+```python
 # 리스트 길이보다 큰 경우 맨 뒤에 추가
 cafe = ['starbucks', 'tomntoms', 'hollys']
-
+cafe.insert(len(cafe), 'end')
+print(cafe)
+cafe.insert(10000, 'end2')
+print(cafe)
 ```
 
+> [ ' starbucks ' ,  ' tomntoms ' ,  ' hollys ' ,  ' end ' ]  
+> [ ' starbucks ' ,  ' tomntoms ' ,  ' hollys ' ,  ' end ' ,  ' end2 ' ]
+
+##### · .remove(x) : 리스트에서 값이 x인 것 삭제
+
+```python
+numbers = [1, 2, 3, 'hi']
+print(numbers)
+numbers.remove('hi')
+print(numbers)
+```
+
+> [ 1 ,  2 ,  3 ,  ' hi ' ]  
+> [ 1 ,  2 ,  3 ]
+
+```python
+# 없는 경우 ValueError
+numbers.remove('hi')
+```
+
+> ValueError :  list.remove(x) :  x  not  in  list
+
+##### · .pop(i) : 정해진 위치 i에 있는 값을 삭제하고, 그 항목을 반환함
+
+```python
+numbers = ['hi', 1, 2, 3]
+print(numbers)
+numbers.pop(0)
+print(numbers)
+```
+
+> [ ' hi ' ,  1 ,  2 ,  3 ]  
+> [ 1 ,  2 ,  3 ]
+
+```python
+# i가 지정되지 않으면, 마지막 항목을 삭제하고 반환함
+numbers = ['hi', 1, 2, 3]
+numbers.pop()
+print(numbers)
+```
+
+> [ ' hi ' ,  1 ,  2 ]
+
+##### · .clear() : 모든 항목을 삭제함
+
+```python
+numbers = [1, 2, 3]
+numbers.clear()
+print(numbers)
+```
+
+> [ ]
+
+##### · .index(x) : x값을 찾아 해당 index 값을 반환
+
+```python
+numbers = [1, 2, 3, 4]
+print(numbers.index(3))
+print(numbers.index(100))  # 없는 경우 ValueError
+```
+
+> 2  
+> ValueError :  10  is  not  in  list
+
+##### · .count(x) : 원하는 값의 개수를 반환함
+
+```python
+numbers = [1, 2, 3, 1, 1]
+numbers.count(1)
+numbers.count(100)
+```
+
+> 3  
+> 0
+
+##### · .sort() : 원본 리스트를 정렬함. None 반환
+
+```python
+numbers = [3, 2, 5, 1]
+result = numbers.sort()
+print(numbers, result)
+```
+
+> [ 1 ,  2 ,  3 ,  5 ]  None
+
+  →  원본 리스트를 변경함
+
+```python
+# sorted 함수와 비교
+numbers = [3, 2, 5, 1]
+result = sorted(numbers)
+print(numbers, result)
+```
+
+> [ 3 ,  2 ,  5 ,  1 ]  [ 1 ,  2 ,  3 ,  5 ]
+
+  →  정렬된 리스트를 반환.  원본 변경 없음
+
+##### · .reverse() : 순서를 반대로 뒤집음 (정렬하는 것이 아님)
+
+```python
+numbers = [3, 2, 5, 1]
+result = numbers.reverse()
+print(numbers, result)
+```
+
+> [ 1 ,  5 ,  2 ,  3 ]  None
+
+### 리스트 복사
+
+```python
+original_list = [1, 2, 3]
+copy_list = original_list
+print(original_list, copy_list)
+```
+
+> [ 1 ,  2 ,  3 ]  [ 1 ,  2 ,  3 ]
+
+```python
+# 리스트의 복사는 같은 리스트의 주소를 참조
+copy_list[0] = 'hello'
+print(original_list, copy_list)
+```
+
+> [ ' hello ' ,  2 ,  3 ]  [ ' hello ' ,  2 ,  3 ]
+
+![image-20210808181952202](PythonDataStructures.assets/image-20210808181952202.png)
+
+### 얕은 복사 1 (shallow copy)
+
+##### · Slice 연산자 활용하여 같은 원소를 가진 리스트지만 연산된 결과를 복사 (다른 주소)
+
+```python
+a = [1, 2, 3]
+b = a[:]
+print(a, b)
+b[0] = 5
+print(a, b)
+```
+
+> [ 1 ,  2 ,  3 ]  [ 1 ,  2 ,  3 ]  
+> [ 1 ,  2 ,  3 ]  [ 5 ,  2 ,  3 ]
+
+![image-20210808182123844](PythonDataStructures.assets/image-20210808182123844.png)
+
+### 얕은 복사 2 (shallow copy)
+
+##### · list() 활용하여 같은 원소를 가진 리스트지만 연산된 결과를 복사 (다른 주소)
+
+```python
+a = [1, 2, 3]
+b = list(a)
+print(a, b)
+b[0] = 5
+print(a, b)
+```
+
+> [ 1 ,  2 ,  3 ]  [ 1 ,  2 ,  3 ]  
+> [ 1 ,  2 ,  3 ]  [ 5 ,  2 ,  3 ]
+
+![image-20210808182947404](PythonDataStructures.assets/image-20210808182947404.png)
+
+### 얕은 복사 주의사항
+
+##### · 복사하는 리스트의 원소가 주소를 참조하는 경우
+
+```python
+a = [1, 2, ['a', 'b']]
+b = a[:]
+print(a, b)
+b[2][0] = [0]
+print(a, b)
+```
+
+> [ 1 ,  2 ,  [ ' a ' ,  ' b ' ] ]  [ 1 ,  2 ,  [ ' a ' ,  ' b ' ] ]  
+> [ 1 ,  2 ,  [ 0 ,  ' b ' ] ]  [ 1 ,  2 ,  [ 0 ,  ' b ' ] ]
+
+![image-20210808183007256](PythonDataStructures.assets/image-20210808183007256.png)
+
+### 깊은 복사 (deep copy)
+
+```python
+import copy
+a = [1, 2, ['a', 'b']]
+b = copy.deepcopy(a)
+print(a, b)
+b[2][0] = 0
+print(a, b)
+```
+
+> [ 1 ,  2 ,  [ ' a ' ,  ' b ' ] ]  [ 1 ,  2 ,  [ ' a ' ,  ' b ' ] ]  
+> [ 1 ,  2 ,  [ ' a ' ,  ' b ' ] ]  [ 1 ,  2 ,  [ 0 ,  ' b ' ] ]
+
+![image-20210808183138269](PythonDataStructures.assets/image-20210808183138269.png)
+
+### List comprehension
+
+##### · 표현식과 제어문을 통해 특정한 값을 가진 리스트를 생성하는 법
+
+```python
+[<expression> for <변수> in <iterable>]
+[<expression> for <변수> in <iterable> if <조건식>]
+```
+
+```python
+# 실습 1 - 1~3의 세제곱의 결과가 담긴 리스트 만들기
+cubic_list = []
+for number in range(1, 4):
+	cubic_list.append(number ** 3)
+cubic_list
+```
+
+> [ 1 ,  8 ,  27 ]
+
+```python
+# 실습 1의 List comprehension
+[number**3 for number in range(1, 4)]
+```
+
+> [ 1 ,  8 ,  27 ]
+
+```python
+# 실습 2 - 1~3까지의 숫자 중 짝수만 담긴 리스트 만들기
+even_list = []
+for i in range(1, 4):
+	if % 2 == 0:
+		even_list.append(i)
+print(even_list)
+```
+
+> [ 2 ]
+
+```python
+# 실습 2의 List comprehension
+[x for x in range(1, 4) if x % 2 == 0]
+```
+
+> [ 2 ]
+
+```python
+# 실습 3 - 다음의 반복문을 List comprehension으로 표현하기
+girls = ['jane', 'ashley']
+boys = ['justin', 'eric']
+
+pair = []
+for boy in boys:
+	for girl in girls:
+		pair.append((boy, girl))
+```
+
+```python
+[(boy, girl) for boy in boys for girl in girls]
+```
+
+> [ ( ' justin ' ,  ' jane ' ) ,  
+>   ( ' justin ' ,  'ashley ' ) ,  
+>   ( ' eric ' ,  ' jane ' ) ,  
+>   ( ' eric ' ,  ' ashley ' ) ]
+
+### Built-in Function
+
+##### · map(function, iterable) : 순회 가능한 데이터구조(iterable)의 모든 료소에 함수(function)를 적용하고, 그 결과를 map object로 반환
+
+```python
+numbers = [1, 2, 3]
+result = map(str, numbers)
+print(result, type(result))
+```
+
+> \<map object at 0x10e2ca100> <class 'map'>
+
+```python
+list(result)  # 리스트 형변환을 통해 결과 직접 확인
+```
+
+> [ ' 1 ' ,  ' 2 ' ,  ' 3 ' ]
+
+```python
+# map 활용 - input 값들을 숫자로 바로 활용
+n, m = map(int, input().split())
+print(n, m)
+print(type(n), type(m))
+```
+
+> 3  5  
+> <class 'int'> <class 'int'>
+
+##### · filter(function, iterable) : 순회 가능한 데이터구조(iterable)의 모든 요소에 함수(function)를 적용하고, 그 결과가 True인 것들을 filter object로 반환
+
+```python
+def odd(n):
+	return n % 2
+numbers = [1, 2, 3]
+result = filter(odd, numbers)
+print(result, type(result))
+```
+
+> <filter object at 0x10e4dfc10> <class 'filter'>
+
+```python
+list(result)  # 리스트 형변환을 통해 결과 직접 확인
+```
+
+> [ 1 ,  3 ]
+
+##### · zip(*iterables) : 복수의 iterable을 모아 튜플을 원소로 하는 zip object를 반환
+
+```python
+girls = ['jane', 'ashley']
+boys = ['justin', 'eric']
+pair = zip(girls, boys)
+print(pair, type(pair))
+```
+
+> <zip object at 0x10e500c80> <class 'zip'>
+
+```python
+list(pair)  # 리스트 형변환을 통해 결과 직접 확인
+```
+
+> [ ( ' jane ' ,  ' justin ' ) ,  ( ' ashley ' ,  ' eric ' ) ]
 
 
+
+## 세트
+
+> ##### · 중복 없이 순서가 없는 데이터 구조
+>
+> ##### · 문자열의 특징
+>
+> > · 변경 가능하고 (mutable)  
+> > · 순서가 없고 (unordered)  
+> > · 순회 가능한 (iterable)
+
+##### · .add(elem) : 세트에 값을 추가
+
+```python
+a = {'사과', '바나나', '수박'}
+print(a)
+a.add('딸기')
+print(a)
+```
+
+> { ' 바나나 ' ,  ' 사과 ' ,  ' 수박 ' }  
+> { ' 바나나 ' ,  ' 사과 ' ,  ' 딸기 ' ,  ' 수박 ' }
+
+##### · .update(*others) : 여러 값을 추가
+
+```python
+a = {'사과', '바나나', '수박'}
+print(a)
+a.update(['딸기', '바나나', '참외'])
+print(a)
+```
+
+> { ' 바나나 ' ,  ' 사과 ' ,  ' 수박 ' }  
+> { ' 바나나 ' ,  ' 사과 ' ,  ' 참외 ' ,  ' 수박 ' ,  ' 딸기 ' }
+
+##### · .remove(elem) : 세트에서 삭제하고, 없으면 KeyError
+
+```python
+a = {'사과', '바나나', '수박'}
+a.remove('사과')
+print(a)
+a.remove('애플')
+print(a)
+```
+
+> { ' 바나나 ' ,  ' 수박 ' }  
+> KeyError :  ' 애플 '
+
+##### · .discard(elem) : 세트에서 삭제하고 없어도 에러가 발생하지 않음
+
+```python
+a = {'사과', '바나나', '수박'}
+a.discard('사과')
+print(a)
+a.discard('애플')
+print(a)
+```
+
+> { ' 바나나 ' ,  ' 수박 ' }  
+> { ' 바나나 ' ,  ' 수박 ' }
+
+##### · .pop() : 임의의 원소를 제거해 반환
+
+```python
+a = {'사과', '바나나', '수박'}
+a.pop()
+print(a)
+```
+
+> { ' 사과 ' , ' 수박 ' }
+
+```python
+a = {'1', '2', '3'}
+a.pop()
+print(a)
+```
+
+> { ' 1 ' ,  ' 2 ' }
+
+
+
+## 딕셔너리
+
+> ##### · Key와 Value로 구성된 데이터 구조
+>
+> ##### · 딕셔너리의 특징
+>
+> > · 변경 가능하고 (mutable)  
+> > · 순서가 없고 (unordered)  
+> > · 순회 가능한 (iterable)
+
+### 조회
+
+##### · get(key[ , default]) : key를 통해 value를 가져옴
+
+​	· KeyError가 발생하지 않으며, default 값을 설정할 수 있음 (기본 : None)
+
+```python
+my_dict = {'apple': '사과', 'banana': '바나나'}
+my_dict['pineapple']
+```
+
+> KeyError :  'pineapple'
+
+```python
+my_dict = {'apple': '사과', 'banana': '바나나'}
+print(my_dict.get('pineapple'))
+print(my_dict.get('apple'))
+print(my_dict.get('pineapple', 0))
+```
+
+> None  
+> 사과  
+> 0
+
+### 추가 및 삭제
+
+##### · .pop(key[ , default]) : key가 딕셔너리에 있으면 제거하고 해당 값을 반환, 그렇지 않으면 default 반환
+
+​	· default값이 없으면 KeyError
+
+```python
+my_dict = {'apple': '사과', 'banana': '바나나'}
+data = my_dict.pop('apple')
+print(data, my_dict)
+```
+
+> 사과  { ' banana ' :  ' 바나나 ' }
+
+```python
+my_dict = {'apple': '사과', 'banana': '바나나'}
+data = my_dict.pop('pineapple', 0)
+print(data, my_dict)
+data = my_dict.pop('pineapple')
+print(data, my_dict)
+```
+
+> 0  { ' apple ' :  ' 사과 ' ,  ' banana ' :  ' 바나나 ' }  
+> KeyError :  'pineapple'
+
+##### · .update() : 값을 제공하는 key, value로 덮어쓰기
+
+```python
+my_dict = {'apple': '사', 'banana': '바나나'}
+my_dict.update(apple='사과')
+print(my_dict)
+```
+
+> { ' apple ' :  ' 사과 ' ,  ' banana ' :  ' 바나나 ' }
+
+### 딕셔너리 순회
+
+##### · 딕셔너리는 기본적으로 key를 순회하며, key를 통해 값을 활용
+
+```python
+grades = {'john': 80, 'eric': 90}
+for student in grades:
+	print(student)
+```
+
+> john  
+> eric
+
+```python
+grades = {'john': 80, 'eric': 90}
+for student in grades:
+	print(student, grades[student])
+```
+
+> john  80  
+> eric  90
+
+##### · 추가 메서드를 활용하여 순회할 수 있음
+
+> · keys() : Key로 구성된 결과  
+> · values() : Value로 구성된 결과  
+> · items() : (Key, Value)의 튜플로 구성된 결과
+
+```python
+grades = {'john': 80, 'eric': 90}
+print(grades.keys())
+print(grades.values())
+print(grades.items())
+```
+
+> dict_keys ( [ ' john ' ,  ' eric ' ] )  
+> dict_values ( [ 80 ,  90 ] )  
+> dict_items ( [ ( ' john ' ,  80 ) ,  ( ' eric ' ,  90 ) ] )
+
+```python
+grades = {'john': 80, 'eric': 90}
+for name, score in grades.items():
+	print(name, score)
+```
+
+> john  80  
+> eric  90
+
+### Dictionary Comprehension
+
+```python
+{key: value for <변수> in <iterable>}
+{key: value for <변수> in <iterable> if <조건식>}
+```
+
+```python
+실습 - 다음의 딕셔너리에서 값이 70 이상으로 구성된 딕셔너리 작성
+dusts = {'서울': 72, '대전': 82, '구미': 29, '광주': 45}
+result = {}
+for key, value in dusts.items():
+	if value > 70:
+		result[key] = value
+print(result)
+```
+
+> { ' 서울 ' :  72 ,  ' 대전 ' :  82 }
+
+```python
+# Dictionary comprehension
+{key: value for key, value in dusts.items() if value > 70}
+```
+
+> { ' 서울 ' :  72 ,  ' 대전 ' :  82 }

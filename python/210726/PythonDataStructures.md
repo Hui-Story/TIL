@@ -411,7 +411,7 @@ print(numbers.index(100))  # 없는 경우 ValueError
 ```
 
 > 2  
-> ValueError :  10  is  not  in  list
+> ValueError :  100  is  not  in  list
 
 ##### · .count(x) : 원하는 값의 개수를 반환함
 

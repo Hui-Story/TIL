@@ -134,3 +134,297 @@
 
 ##### · 태그와 상관없이 사용 가능한 속성(HTML Global Attribute)들도 있음
 
+### HTML Global Attribute
+
+##### · 모든 HTML 요소가 공통으로 사용할 수 있는 속성 (몇몇 요소에는 아무 효과가 없을 수 있음)
+
+> ·  id, class  
+> ·  hidden  
+> ·  lang  
+> ·  style  
+> ·  tabindex  
+> ·  title
+
+### 시맨틱 태그
+
+##### · HTML5에서 의미론적 요소를 담은 태그의 등장 ~~div~~
+
+##### · 대표적인 태그들은 다음과 같음
+
+> ·  header  :  문서 전체나 섹션의 헤더 (머릿말 부분)  
+> ·  nav  :  내비게이션  
+> ·  aside  :  사이드에 위치한 공간, 메인 콘텐츠와 관련성이 적은 콘텐츠  
+> ·  section  :  문서의 일반적인 구분, 컨텐츠의 그룹을 표현  
+> ·  article  :  문서, 페이지, 사이트 안에서 독립적으로 구분되는 영역  
+> ·  footer  :  문서 전체나 섹션의 푸터 (마지막 부분)
+
+```html
+<header>
+  <nav></nav>
+</header>
+<section>
+  <article></arcitle>
+  <article></arcitle>
+</section>
+<footer></footer>
+```
+
+##### · 개발자 및 사용자 뿐만 아니라 검색엔진 등에 의미 있는 정보의 그룹을 태그로 표현
+
+##### · 단순히 구역을 나누는 것 뿐만 아니라 '의미'를 가지는 태그들을 활용하기 위한 노력
+
+##### · Non semantic 요소는 div, span 등이 있으며 h1, table 태그들도 시맨틱 태그로 볼 수 있음
+
+##### · 요소의 의미가 명확해지기 때문에 코드의 가독성을 높이고 유지보수를 쉽게 함
+
+##### · 검색엔진최적화(SEO)를 위해서 메타태그, 시맨틱 태그 등을 통한 마크업을 효과적으로 할 필요가 있다.
+
+### 시맨틱 웹
+
+##### · 웹 상에 존재하는 수많은 웹 페이지들에 메타데이터를 부여
+
+##### · 기존의 단순한 데이터의 집합이었던 웹페이지를 '의미'와 '관련성'을 가지는 거대한 데이터베이스로 구축하고자 하는 발상
+
+
+
+## HTML 문서 구조화
+
+### 인라인 / 블록 요소
+
+![image-20210809131519926](Web1.assets/image-20210809131519926.png)
+
+### 그룹 컨텐츠
+
+> ·  \<p\>  
+> ·  \<hr\>  
+> ·  \<ol\>,  \<ul\>  
+> ·  \<pre\>,  \<blockquote\>  
+> ·  \<div\>
+
+### 텍스트 관련 요소
+
+> ·  \<a\>  
+> ·  \<b\>  vs  \<strong\>  
+> ·  \<i\>  vs  \<em\>  
+> ·  \<span\>,  \<br\>,  \<img\>  
+> ·  기타 등등
+
+### table
+
+> ·  \<tr\>,  \<td\>,  \<th\>  
+> ·  \<thead\>,  \<tbody\>,  \<tfoot\>  
+> ·  \<a\>  
+> ·  셀 병합 속성 :  colspan,  rowspan  
+> ·  scope 속성  
+> ·  \<col\>,  \<colgroup\>
+
+### form
+
+##### · \<form\>은 서버에서 처리될 데이터를 제공하는 역할
+
+##### · \<form\>의 기본 속성
+
+> ·  action  
+> ·  method
+
+### input
+
+##### · 다양한 타입을 가지는 입력 데이터 필드
+
+##### · \<lable\> : 서식 입력 요소의 캡션
+
+##### · \<input\> 공통 속성
+
+> ·  name, placeholder  
+> ·  required  
+> ·  autofocus
+
+##### · \<input\> 요소의 동작은 type에 따라 달라지므로, 각각의 내용 숙지하기
+
+https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input
+
+### 마크업 실습
+
+> ![image-20210809134737141](Web1.assets/image-20210809134737141.png)
+
+```html
+<header>
+  <h1>FORM</h1>
+</header>
+<section>
+  <form action="#">
+    <!-- 날짜 -->
+    <!-- 샌드위치 선택 -->
+    <hr>
+    <!-- 사이즈 선택 -->
+    <hr>
+    <!-- 빵 -->
+    <!-- 야채/소스 -->
+    <input type="submit" value="submit" onclick="alert('주문완료')">
+  </form>
+  <footer>
+    Google 설문지를 통해 비밀번호를 제출하지 마시오.
+  </footer>
+</section>
+```
+
+
+
+## CSS (Cascading Style Sheets)
+
+> ##### 스타일, 레이아웃 등을 통해 문서(HTML)를 표시하는 방법을 지정하는 언어
+
+### CSS 구문
+
+```css
+h1 {
+  color: blue;
+  font-size: 15px;
+}
+```
+
+##### · CSS 구문은 선택자와 함께 열림
+
+##### · 선택자를 통해 스타일을 지정할 HTML 요소를 선택
+
+##### · 중괄호 안에서는 속성과 값, 하나의 쌍으로 이루어진 선언을 진행
+
+##### · 각 쌍은 선택한 요소의 속성, 속성에 부여할 값을 의미
+
+> · 속성 (Property) : 어떤 스타일 기능을 변경할지 결정  
+> · 값 (Value) : 어떻게 스타일 기능을 변경할지 결정
+
+### CSS 정의 방법
+
+##### · 인라인 (inline) : 해당 태그에 직접 style 속성을 활용
+
+```html
+<body>
+  <h1 style="color: blue; font-size: 100px;">Hello</h1>
+</body>
+```
+
+##### · 내부 참조 (embedding) : head 태그 내 \<style\>에 지정
+
+```html
+<head>
+  <style>
+    h1 {
+      color: blue;
+      font-size: 100px;
+    }
+  </style>
+</head>
+```
+
+> ![image-20210809171224936](Web1.assets/image-20210809171224936.png)
+
+##### · 외부 참조 (link file) : 외부 CSS 파일을 \<head\>내 \<link\>를 통해 불러오기
+
+```html
+<head>
+  <link rel"stylesheet" href="mystyle.css">
+</head>
+```
+
+> ![image-20210809171232897](Web1.assets/image-20210809171232897.png)
+
+
+
+## CSS Selectors
+
+### 선택자 (Selector)
+
+> ##### · HTML 문서에서 특정한 요소를 선택하여 스타일링 하기 위해서는 반드시 선택자라는 개념이 필요
+>
+> ##### · 기본 선택자
+>
+> > ·  전체 선택자,  요소 선택자  
+> > ·  클래스 선택자,  아이디 선택자,  속성 선택자
+>
+> ##### · 결합자 (Combinators)
+>
+> > ·  자손 결합자,  자식 결합자  
+> > ·  일반 형제 결합자,  인접 형제 결합자
+>
+> ##### · 의사 클래스/요소 (pseudo class)
+>
+> > ·  링크,  동적 의사 클래스  
+> > ·  구조적 의사 클래스,  ~~기타 의사 클래스,  의사 엘리먼트,  속성 선택자~~
+
+### CSS 선택자 정리
+
+##### · 요소 선택자
+
+​	· HTML 태그를 직접 선택
+
+##### · 클래스(class) 선택자
+
+​	· 마침표(.)문자로 시작하며, 해당 클래스가 적용된 모든 항목을 선택
+
+##### · 아이디(id) 선택자
+
+​	· # 문자로 시작하며, 해당 아이디가 적용된 모든 항목을 선택  
+​	· 일반적으로 하나의 문서에 1번만 사용 (Unique)  
+​	· 여러 번 사용해도 동작하지만, 단일 id를 사용하는 것을 권장
+
+### CSS 적용 우선순위 (Cascading order)
+
+##### · CSS 우선순위를 아래와 같이 그룹을 지어볼 수 있음
+
+> 1\. 중요도 (Importance)  # 사용시 주의  
+> 	· !important  
+> 2\. 우선순위 (Specificity)  
+> 	· 인라인  >  id 선택자  >  class 선택자, ~~속성 선택자, pseudo-class~~  >  요소 선택자,  ~~pseudo-element~~  
+> 3\. 소스 순서
+
+### CSS 상속
+
+##### · CSS는 상속을 통해 부모 요소의 속성을 ~~모두~~ 자식에게 상속
+
+> ##### · 상속 되는 것 예시
+>
+> > ·  Text 관련 요소 (font, color, text_align), opacity, visibility 등
+>
+> ##### · 상속 되지 않는 것 예시
+>
+> > ·  Box model 관련 요소 (width, height, margin, padding, border, box-sizing, display)  
+> > ·  position 관련 요소 (position, top/right/bottom/left, z-index) 등
+
+```html
+<body>
+  <p>안녕하세요 <span>반갑</span> 습니다.</p>
+</body>
+```
+
+```css
+<style>
+  p {
+    /* 상속됨 */
+    color: red;
+    /* 상속 안됨 */
+    border: 1px solid black;
+  }
+  
+  span {
+    border: 1px solid blue;
+  }
+</style>
+```
+
+
+
+## CSS 단위
+
+### 크기 단위
+
+##### · px (픽셀)
+
+​	·  모니터 해상도의 한 화소인 '픽셀'을 기준  
+​	·  픽셀의 크기는 변하지 않기 때문에 고정적인 단위
+
+##### · %
+
+​	·  백분율 단위  
+​	·  가변적인 레이아웃에서 자주 사용
+

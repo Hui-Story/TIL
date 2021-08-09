@@ -377,7 +377,7 @@ print(sum)
 print(sum(range(2)))
 ```
 
-> <built-in function sum>  
+> \<built-in function sum>  
 > 1  
 > 5  
 > TypeError :  'int'  object  is  not  callable
@@ -427,7 +427,7 @@ print(a)
 ```python
 # global 주의 사항 2
 a = 10
-def func1():
+def func1(a):
 	global a
 	a = 3
 	

@@ -444,11 +444,13 @@ print('이 다음은 엔터.\n그리고 탭\t탭')
 print('Hello, %s' % name)
 print('내 성적은 %d' % score)
 print('내 성적은 %f' % score)
+print('내 성적은 %.3f' % score)
 ```
 
 > Hello, Kim  
 > 내 성적은 4  
-> 내 성적은 4.500000
+> 내 성적은 4.500000  
+> 내 성적은 4.500
 
 ```python
 # 2. str.format()
@@ -615,12 +617,13 @@ float('3/4') + 5.3
 |   /    |  나눗셈  |
 |   //   |    몫    |
 |   **   | 거듭제곱 |
+|   %    |  나머지  |
 
 ```python
 print(5 / 2)
-print(4 / 2) # 나눗셈은 항상 결과가 float
+print(4 / 2)  # 나눗셈은 항상 결과가 float
 print(5 // 2)
-print(int(5/2))
+print(int(5/2))  # float를 int로 변환하면 '버림' 적용
 print(5 % 2)
 ```
 
@@ -631,7 +634,7 @@ print(5 % 2)
 > 1
 
 ```python
-print(divmod(5, 2)) # divmod는 몫과 나머지를 반환하는 함수
+print(divmod(5, 2))  # divmod는 몫과 나머지를 반환하는 함수
 quotient, remainder = divmod(5, 2)
 print(quotient, remainder)
 ```

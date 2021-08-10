@@ -420,11 +420,597 @@ h1 {
 
 ##### · px (픽셀)
 
-​	·  모니터 해상도의 한 화소인 '픽셀'을 기준  
-​	·  픽셀의 크기는 변하지 않기 때문에 고정적인 단위
+> ·  모니터 해상도의 한 화소인 '픽셀'을 기준  
+> ·  픽셀의 크기는 변하지 않기 때문에 고정적인 단위
 
 ##### · %
 
-​	·  백분율 단위  
-​	·  가변적인 레이아웃에서 자주 사용
+> ·  백분율 단위  
+> ·  가변적인 레이아웃에서 자주 사용
+
+##### · em
+
+> ·  (바로 위, 부모 요소에 대한) 상속의 영향을 받음  
+> ·  배수 단위, 요소에 지정된 사이즈에 상대적인 사이즈를 가짐
+
+##### · rem
+
+> ·  (바로 위, 부모 요소에 대한) 상속의 영향을 받지 않음  
+> ·  최상위 요소(html)의 사이즈를 기준으로 배수 단위를 가짐
+
+##### · viewport
+
+> ·  웹 페이지를 방문한 유저에게 바로 보이게 되는 웹 컨텐츠의 영역  
+> ·  주로 스마트폰이나 태블리 디바이스의 화면을 일컫는 용어로 사용됨  
+> ·  글자 그대로 디바이스의 viewport를 기준으로 상대적인 사이즈가 결정됨  
+> ·  vw, vh, vmin, vmax
+
+```html
+<body>
+  <ul class="em">
+    <li class="em">1.5em</li>
+    <li class="rem">1.5rem</li>
+    <li>no class</li>
+  </ul>
+</body>
+```
+
+```css
+<style>
+  .cm {
+    font-size: 1.5em;
+  }
+  
+  .rem {
+    font-size: 1.5rem;
+  }
+</style>
+```
+
+### 색상 단위
+
+##### 1. 색상 키워드
+
+> ·  대소문자를 구분하지 않음  
+> ·  red, blue, black 과 같은 특정 색을 직접 글자로 나타냄
+
+##### 2. RGB 색상
+
+> ·  16진수 표기법 혹은 함수형 표기법을 사용해서 특정 색을 표현하는 방식
+
+##### 3. HSL 색상
+
+> ·  색상, 채도, 명도를 통해 특정 색을 표현하는 방식
+
+```css
+/* 모두 black을 표시 */
+p { color: black; }
+p { color: #000; }
+p { color: #000000; }
+p { color: rgb(0, 0, 0); }
+p { color: hsl(120, 100%, 0); }
+
+/* a는 alpha(투명도)가 추가된 것 */
+p { color: rgba(0, 0, 0, 0.5); }
+p { color: hsla(120, 100%, 0.5); }
+```
+
+### CSS 문서 표현
+
+##### · 텍스트
+
+> ·  변형 서체 (vs \<b\>, \<i\> vs \<strong\>, \<em\>)  
+> ·  자간, 단어 간격, 행간, 들여쓰기  
+> ·  기타 꾸미기
+
+##### · 컬러(color), 배경(background-image, background-color)
+
+##### · 목록 꾸미기
+
+##### · 표 꾸미기
+
+
+
+## Selectors 심화
+
+### 결합자 (Combinators)
+
+##### · 자손 결합자
+
+​	· selector A 하위의 모든 selector B 요소
+
+```css
+div span {
+  color: red;
+}
+```
+
+```html
+<div>
+  <span>이건 빨강입니다.</span>
+  <p>이건 빨강이 아닙니다.</p>
+  <p>
+    <span>이건 빨강입니다.</span>
+  </p>
+</div>
+```
+
+##### · 자식 결합자
+
+​	· selector A 바로 아래의 selector B 요소
+
+```css
+div > span {
+  color: red;
+}
+```
+
+```html
+<div>
+  <span>이건 빨강입니다.</span>
+  <p>이건 빨강이 아닙니다.</p>
+  <p>
+    <span>이건 빨강이 아닙니다.</span>
+  </p>
+</div>
+```
+
+##### · 일반 형제 결합자
+
+​	· selector A 의 형제 요소 중 뒤에 위치하는 selector B 요소를 모두 선택
+
+```css
+p ~ span {
+  color: red;
+}
+```
+
+```html
+<span>p태그의 앞에 있기 때문에 이건 빨강이 아닙니다.</span>
+<p>여기 문단이 있습니다.</p>
+<b>그리고 코드도 있습니다.</b>
+<span>p태그와 형제이기 때문에 이건 빨강입니다!</span>
+<b>더 많은 코드가 있습니다.</b>
+<span>이것도 p태그와 형제이기 때문에 빨강입니다!</span>
+```
+
+##### · 인접 형제 결합자
+
+​	· selector A 의 형제 요소 중 바로 뒤에 위치하는 selector B 요소를 선택
+
+```css
+p + span {
+  color: red;
+}
+```
+
+```html
+<span>p태그의 앞에 있기 때문에 이건 빨강이 아닙니다.</span>
+<p>여기 문단이 있습니다.</p>
+<span>p태그와 인접한 형제이기 때문에 이건 빨강입니다!</span>
+<b>그리고 코드도 있습니다.</b>
+<span>p태그와 인접한 형제가 아니기 때문에 이건 빨강이 아닙니다.</span>
+```
+
+
+
+## CSS Box model
+
+##### · 모든 HTML 요소는 box 형태로 되어있음
+
+##### · 하나의 박스는 네 부분(영역)으로 이루어짐
+
+> ·  content  
+> ·  padding  
+> ·  border  
+> ·  margin
+
+### Box model 구성
+
+![image-20210810091319862](Web1.assets/image-20210810091319862.png)
+
+##### · margin
+
+![image-20210810091406253](Web1.assets/image-20210810091406253.png)
+
+```css
+.margin {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+}
+```
+
+##### · padding
+
+![image-20210810091735861](Web1.assets/image-20210810091735861.png)
+
+```css
+.margin-padding {
+  margin: 10px;
+  padding: 30px;
+}
+```
+
+##### · margin/padding - shorthand 표현
+
+![image-20210810092045954](Web1.assets/image-20210810092045954.png)
+
+##### · border
+
+![image-20210810091820526](Web1.assets/image-20210810091820526.png)
+
+```css
+.border {
+  border-width: 2px;
+  border-style: dashed;
+  border-color: black;
+}
+```
+
+```css
+# border - shorthand
+.border {
+  border: 2px dashed black;
+}
+```
+
+### Box model 실습
+
+```html
+<body>
+  <div class="box1">div</div>
+  <div class="box2">div</div>
+</body>
+```
+
+```css
+<style>
+  .box1 {
+    width: 500px;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: black;
+    padding-left: 50px;
+    margin-bottom: 30px;
+  }
+  
+  .box2 {
+    width: 500px;
+    border: 2px solid black;
+    padding: 20px 30px;
+    margin: 0 auto;
+  }
+</style>
+```
+
+> ![image-20210810093536819](Web1.assets/image-20210810093536819.png)
+
+### Box size 실습
+
+```html
+<body>
+  <div class="box">div</div>
+  <div class="box box-sizing">div</div>
+</body>
+```
+
+```css
+<style>
+  .box {
+    width: 100px;
+    margin: 10px auto;
+    padding: 20px;
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+    background-color: blueviolet;
+  }
+  
+  .box-sizing {
+    box-sizing: border-box;
+  }
+</style>
+```
+
+> ![image-20210810094741994](Web1.assets/image-20210810094741994.png)
+>
+> [ box-sizing :  content-box ]
+>
+> ![image-20210810095122242](Web1.assets/image-20210810095122242.png)
+>
+> [ box-sizing :  border-box ]
+>
+> ![image-20210810095139923](Web1.assets/image-20210810095139923.png)
+
+##### · 기본적으로 모든 요소의 box-sizing은 content-box
+
+​	·Padding을 제외한 순수 contents 영역만을 box로 지정
+
+##### · 다만, 우리가 일반적으로 영역을 볼 때는 border까지의 너비를 100px 보는 것을 원함
+
+​	· 그 경우 box-sizing을 border-box로 설정
+
+> ![image-20210810095155047](Web1.assets/image-20210810095155047.png)
+
+### 마진 상쇄
+
+##### · 인접 형제 요소 간의 각각의 margin이 둘 중에서 큰 마진 값으로 결합(겹쳐지게)되는 현상
+
+
+
+## CSS Display
+
+> 모든 요소는 네모(박스모델)이고, 어떻게 보여지는지(display)에 따라 문서에서의 배치가 달라질 수 있음
+
+### display - block, inline
+
+##### · display : block
+
+​	· 줄 바꿈이 일어나는 요소  
+​	· 화면 크기 전체의 가로 폭을 차지  
+​	· 블록 레벨 요소 안에 인라인 레벨 요소가 들어갈 수 있음
+
+##### · display : inline
+
+​	· 줄 바꿈이 일어나지 않는 행의 일부 요소  
+​	· content 너비만큼 가로 폭을 차지  
+​	· width, height, margin-top, margin-bottom을 지정할 수 없음  
+​	· 상하 여백은 line-height로 지정
+
+### 블록 레벨 요소 / 인라인 레벨 요소
+
+##### · 블록 레벨 요소와 인라인 레벨 요소 구분 (HTML 4.1 까지)
+
+##### · 대표적인 블록 레벨 요소 (https://developer.mozilla.org/ko/docs/Web/HTML/Block-level_elements)
+
+> ·  div  /  ul, ol, li  /  p  /  hr  /  form  등
+
+##### · 대표적인 인라인 레벨 요소 (https://developer.mozilla.org/ko/docs/Web/HTML/Inline_elements)
+
+> ·  span  /  a  /  img  /  input, label  /  b, em, i, strong  등
+
+### Block
+
+> 기본은 너비의 100%
+>
+> ![image-20210810134516718](Web1.assets/image-20210810134516718.png)
+>
+> ![image-20210810134526415](Web1.assets/image-20210810134526415.png)
+
+### Inline
+
+> 컨텐츠 영역 만큼만 차지
+>
+> ![image-20210810134605630](Web1.assets/image-20210810134605630.png)
+>
+> ![image-20210810134612532](Web1.assets/image-20210810134612532.png)
+>
+> 
+
+### 속성에 따른 수평 정렬
+
+> ![image-20210810134711514](Web1.assets/image-20210810134711514.png)
+
+### display - inline-block, none
+
+##### · display : inline-block
+
+​	· block과 inline 레벨 요소의 특징을 모두 가짐  
+​	· inline처럼 한 줄에 표시 가능  
+​	· block처럼 width, height, margin 속성을 모두 지정할 수 있음
+
+##### · display : none
+
+​	· 해당 요소를 화면에 표시하지 않음 (공간조차 사라짐)  
+​	· 이와 비슷한 visibility : hidden은 해당 요소가 공간은 차지하나 화면에 표시만 하지 않음
+
+```html
+<body>
+  <h1>나는 block입니다</h1>
+  <div>block</div>
+  <p>나는 <span>인라인</span>속성입니다.</p>
+  <hr>
+  <h2>display none vs visibility hidden</h2>
+  <div>1</div>
+  <div class="none">2</div>
+  <div class="hidden">3</div>
+  <div>4</div>
+</body>
+```
+
+```css
+<style>
+  div {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    background-color: crimson;
+  }
+  
+  .none {
+    display: none;
+  }
+  
+  .hidden {
+    visibility: hidden;
+  }
+</style>
+```
+
+> ![image-20210810135711832](Web1.assets/image-20210810135711832.png)
+
+
+
+## CSS Position
+
+##### · 문서 상에서 요소를 배치하는 방법을 지정  
+
+##### · static : 모든 태그의 기본 값 (기준 위치)
+
+​	· 일반적인 요소의 배치 순서에 따름 (좌측 상단)  
+​	· 부모 요소 내에서 배치될 때는 부모 요소의 위치를 기준으로 배치 됨
+
+##### · 아래는 좌표 프로퍼티(top, bottom, left, right)를 사용하여 이동이 가능 (음수 값도 가능)
+
+> · relative  
+> · absolute  
+> · fixed
+
+### static
+
+```css
+div {
+  height: 100px;
+  width: 100px;
+  background-color: #9775fa;
+  color: black;
+  line-height: 100px;
+  text-align: center;
+}
+```
+
+> ![image-20210810140012254](Web1.assets/image-20210810140012254.png)
+
+### relative
+
+```css
+.relative {
+  position: relative;
+  top: 100px;
+  left: 100px;
+}
+```
+
+> ![image-20210810140044054](Web1.assets/image-20210810140044054.png)
+
+### absolute
+
+```css
+.parent {
+  position: relative;
+}
+
+.absolute-child {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+```
+
+> ![image-20210810140129432](Web1.assets/image-20210810140129432.png)
+
+### fixed
+
+```css
+.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+```
+
+> ![image-20210810140154195](Web1.assets/image-20210810140154195.png)
+
+### absolute와 relative 비교
+
+##### · 형에게 top: 100px;을 적용했을 때 absolute와 relative의 차이
+
+![image-20210810140302357](Web1.assets/image-20210810140302357.png)
+
+```html
+<body>
+  <div class="parent">
+    <div class="absolute">형</div>
+    <div class="sibling">동생</div>
+  </div>
+  <hr>
+  <div class="parent">
+    <div class="relative">형</div>
+    <div class="sibling">동생</div>
+  </div>
+</body>
+```
+
+```css
+<style>
+  /* 공통 스타일링 */
+  div {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+  }
+  
+  .parent {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+</style>
+```
+
+```css
+<style>
+  /* 차이점 확인해보기 */
+  .absolute {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-color: crimson;
+  }
+  
+  .sibling {
+    background-color: deepskyblue;
+  }
+  
+  .relative {
+    position: relative;
+    top: 100px;
+    left: 100px;
+    background-color: crimson;
+  }
+</style>
+```
+
+> [ absolute ]
+>
+> ![image-20210810140646810](Web1.assets/image-20210810140646810.png)
+>
+> [ relative ]
+>
+> ![image-20210810140700726](Web1.assets/image-20210810140700726.png)
+
+### absolute의 특징
+
+##### · 원래 위치해 있었던 과거 위치에 있던 공간은 더 이상 존재하지 않음
+
+##### · 즉, 다른 모든 것과 별개로 독자적인 곳에 놓임
+
+##### · 페이지의 다른 요소의 위치와 간섭하지 않는 격리된 사용자 인터페이스 기능을 만드는데 활용
+
+##### (팝업 정보 상자, 제어 메뉴, 롤오버 패널, 페이지 어느 곳에서나 끌어서 놓기 할 수 있는 유저 인터페이스 페이지)
+
+
+
+## etc.
+
+### 학습 가이드라인
+
+##### · MDN web docs
+
+https://developer.mozilla.org/ko/
+
+### Emmet
+
+##### · HTML & CSS를 작성할 때 보다 빠른 마크업을 위해서 사용되는 오픈소스
+
+##### · 단축키, 약어 등을 사용
+
+##### · 대부분의 텍스트 에디터에서 지원
+
+https://emmet.io/
+
+https://docs.emmet.io/cheat-sheet/
 

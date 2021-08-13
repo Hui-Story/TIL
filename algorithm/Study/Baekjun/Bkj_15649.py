@@ -11,9 +11,7 @@ def dfs(result: list, lst: list):
         print(*result)
         return
     for i in range(1, N+1):
-        if result and i < result[-1]:
-            continue
-        elif lst[i] == 0:
+        if lst[i] == 0:
             result.append(i)
             lst[i] = 1
             dfs(result, lst)

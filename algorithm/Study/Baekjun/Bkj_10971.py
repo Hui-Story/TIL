@@ -8,8 +8,8 @@ result = []
 count = 0
 now_place = 1
 
-def dfs(check: list, result: list, cost, count, now_place):
-    global N, lst
+def dfs(check: list, cost, count, now_place):
+    global N, lst, result
     if count == N-1:
         if lst[now_place-1][0] == 0:
             return
@@ -17,14 +17,17 @@ def dfs(check: list, result: list, cost, count, now_place):
             cost += lst[now_place-1][0]
             result.append(cost)
             return
-    for i in range(1, N+1):
+    for i in range(2, N+1):
         if check[i] == 0 and lst[now_place-1][i-1] != 0:
             cost += lst[now_place-1][i-1]
             check[i] = 1
-            now_place = i
+            now_place_2 = i
             count += 1
-            dfs(check, result, cost, count, now_place)
+            dfs(check, cost, count, now_place_2)
+            cost -= lst[now_place-1][i-1]
             check[i] = 0
+            count -= 1
 
-dfs(check, result, 0, count, now_place)
+
+dfs(check, 0, count, now_place)
 print(min(result))

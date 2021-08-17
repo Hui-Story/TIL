@@ -441,7 +441,7 @@ h1 {
 ##### · viewport
 
 > ·  웹 페이지를 방문한 유저에게 바로 보이게 되는 웹 컨텐츠의 영역  
-> ·  주로 스마트폰이나 태블리 디바이스의 화면을 일컫는 용어로 사용됨  
+> ·  주로 스마트폰이나 태블릿 디바이스의 화면을 일컫는 용어로 사용됨  
 > ·  글자 그대로 디바이스의 viewport를 기준으로 상대적인 사이즈가 결정됨  
 > ·  vw, vh, vmin, vmax
 
@@ -457,7 +457,7 @@ h1 {
 
 ```css
 <style>
-  .cm {
+  .em {
     font-size: 1.5em;
   }
   
@@ -499,7 +499,7 @@ p { color: hsla(120, 100%, 0.5); }
 
 ##### · 텍스트
 
-> ·  변형 서체 (vs \<b\>, \<i\> vs \<strong\>, \<em\>)  
+> ·  변형 서체 (\<b\> vs \<strong\>, \<i\> vs \<em\>)  
 > ·  자간, 단어 간격, 행간, 들여쓰기  
 > ·  기타 꾸미기
 
@@ -650,7 +650,7 @@ p + span {
 ```
 
 ```css
-# border - shorthand
+/* border - shorthand */
 .border {
   border: 2px dashed black;
 }

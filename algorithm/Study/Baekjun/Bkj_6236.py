@@ -3,29 +3,29 @@ import sys
 N, M = map(int, input().split())
 lst = [int(sys.stdin.readline()) for _ in range(N)]
 
-def cost(low, high):
-    global N, M, lst
-    while True:
-        middle = (low + high) // 2
-        money = middle
-        cnt = 1
+low = 1
+# low = max(lst)
+high = 10000*N
 
-        for i in lst:
-            if middle < i:
-                low = middle
-                break
-            elif money >= i:
-                money -= i
-            else:
-                money = middle - i
-                cnt += 1
+while True:
+    middle = (low + high) // 2
+    money = middle
+    cnt = 1
+
+    for i in lst:
+        if money >= i:
+            money -= i
+        elif middle < i:
+            low = middle + 1
+            break
         else:
-            if (high - low) <= 1:
-                print(low)
-                return
-            elif cnt < M:
-                high = middle
-            else:
-                low = middle
-
-cost(1, 10000)
+            money = middle - i
+            cnt += 1
+    else:
+        if low == high:
+            print(low)
+            break
+        elif cnt <= M:
+            high = middle
+        else:
+            low = middle + 1

@@ -2,80 +2,67 @@ import sys
 
 N, H = map(int, sys.stdin.readline().split())
 
-lst1 = []
-lst2 = []
-
-for i in range(N//2):
-    lst1.append(int(sys.stdin.readline()))
-    lst2.append(H - int(sys.stdin.readline()))
-
-lst1.sort()  # 석순
-lst2.sort()  # 종유석
-
 # 계차수열
 
-"""
-lst1 = []
-lst2 = []
+lst1 = [0] * (N//2)
+lst2 = [0] * (N//2)
 lst1_in = []
 lst2_in = []
 
-for i in range(N//2):
+for _ in range(N // 2):
     lst1_in.append(int(sys.stdin.readline()))
     lst2_in.append(H - int(sys.stdin.readline()))
 
-lst1_count = [0] * (H+1)
-lst2_count = [0] * (H+1)
+cnt1 = [0] * (H + 1)
+cnt2 = [0] * (H + 1)
 
-for i in range(N//2):
-    lst1_count[lst1_in[i]] += 1
-    lst2_count[lst2_in[i]] += 1
+for i in range(N // 2):
+    cnt1[lst1_in[i]] += 1
+    cnt2[lst2_in[i]] += 1
 
-for i in range(1, H+1):
-    for j in range(lst1_count[i]):
-        lst1.append(i)
+for i in range(1, H + 1):
+    cnt1[i] += cnt1[i - 1]
+    cnt2[i] += cnt2[i - 1]
 
-for i in range(1, H+1):
-    for j in range(lst2_count[i]):
-        lst2.append(i)
-
-"""
+for i in range(N // 2):
+    lst1[cnt1[lst1_in[i]] - 1] = lst1_in[i]
+    lst2[cnt2[lst2_in[i]] - 1] = lst2_in[i]
+    cnt1[lst1_in[i]] -= 1
+    cnt2[lst2_in[i]] -= 1
 
 min_result = 2e+10
 cnt = 1
 
-for course in range(1, H+1):
+for course in range(1, H + 1):
 
     result = 0
 
     low = 0
-    high = N//2
+    high = (N // 2) - 1
 
-    while True:
+    while low <= high:
         middle = (low + high) // 2
 
-        if low == high:
-            result += (N//2 - low)
-            break
-        elif lst1[middle] >= course:
-            high = middle
+        if lst1[middle] >= course:
+            high = middle - 1
         else:
             low = middle + 1
-    
+
+    result += (N // 2 - low)
+
     low = 0
-    high = N//2
-    
-    while True:
+    high = (N // 2) - 1
+
+    while low <= high:
         middle = (low + high) // 2
 
-        if low == high:
-            result += low
-            break
-        elif lst2[middle] >= course:
-            high = middle
+        if lst2[middle] >= course:
+            high = middle - 1
         else:
             low = middle + 1
     
+    result += low
+
     if result <= min_result:
         if result == min_result:
             cnt += 1

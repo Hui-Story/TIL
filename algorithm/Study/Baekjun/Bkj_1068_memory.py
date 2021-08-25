@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
 def leaf_node(node):
@@ -21,6 +22,9 @@ result = 0
 for i in range(1, N):
     if i != num:
         arr[nodes[i]][i] = 1
-if num != 0:
-    leaf_node(0)
+
+for i in range(N):
+    if nodes[i] == -1 and i != num:
+        leaf_node(i)
+
 print(result)

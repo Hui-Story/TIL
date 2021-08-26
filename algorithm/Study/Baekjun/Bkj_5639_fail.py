@@ -4,14 +4,14 @@ input = sys.stdin.readline
 
 def binary(start):
     global tree, parents
-    for i in dic[start]:
-        if i:
-          binary(i)
+    for num in dic[start]:
+        if num:
+            binary(num)
     print(start)
     return
 
 tree = []
-parents = [0] * (1000001)
+parents = {}
 dic = {}
 
 while True:
@@ -20,10 +20,11 @@ while True:
     except:
         break
 
-parents[tree[0]] += 1000001
-
 for i in tree:
     dic[i] = []
+    parents[i] = 0
+
+parents[tree[0]] += 1000001
 
 max_node = 0
 
@@ -52,7 +53,7 @@ for i in range(len(tree)-1):
                     else:
                         dic[max_node].append(0)
                         dic[max_node].append(tree[i+1])
-                    parents[tree[i+1]] = node
+                    parents[tree[i+1]] = max_node
                     break
                 else:
                     node = parents[node]

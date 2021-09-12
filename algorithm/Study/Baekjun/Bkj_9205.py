@@ -13,7 +13,6 @@ for case in range(t):
     for _ in range(n):
         x, y = map(int, input().split())
         markets.append([x, y])
-    markets.sort()
     visited = [0]*n
 
     festival = list(map(int, input().split()))

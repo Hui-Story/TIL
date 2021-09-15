@@ -18,13 +18,15 @@ def SMUP_calc(num):
 N = int(input())
 words = str(input())
 
-SMUPC = ''
+SMUPC = ''  # 이전 기호
 now_num = ''
 result = 0
 C_check = False
 
 for word in words:
+    # 새로운 기호가 발견되면 이전 기호 연산을 수행
     if word in 'SMUPC':
+        # 이전 기호가 'C'라면 연산을 수행하지 않음
         if SMUPC != 'C':
             num = int(now_num)
             SMUP_calc(num)

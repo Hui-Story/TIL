@@ -15,6 +15,6 @@ def card_count():
 S = str(input())
 
 shape_dic = {'P': 0, 'K': 1, 'H': 2, 'T': 3}
-card_check = [[1] * 13 for _ in range(4)]
+card_check = [[1] * 13 for _ in range(4)]  # 2차원 배열으로 카드 카운팅
 
 card_count()

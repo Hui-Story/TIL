@@ -2,6 +2,7 @@ poly = str(input())
 
 result = []
 now = ''
+
 for i in poly:
     if i in ['+', '-']:
         if now:

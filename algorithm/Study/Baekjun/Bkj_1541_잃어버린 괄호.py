@@ -1,35 +1,22 @@
-import sys
-input = sys.stdin.readline
-
 inp = str(input())
+inp = inp[::-1]  # 역으로 탐색하기 위해 식 반전
 
-minus = False
-num = ''
-num_cnt = 0
+num = ''  # 숫자 입력
+num_cnt = 0  # '+'에 의한 누적
 result = 0
 
 for i in inp:
-    if i == '+':
+    if i in ['+', '-']:
         num_cnt += int(num)
         num = ''
-    elif i == '-':
-        num_cnt += int(num)
-        num = ''
-        if minus:
+        # '-'인 경우 누적된 값을 결과에서 빼줌
+        if i == '-':
             result -= num_cnt
             num_cnt = 0
-        else:
-            result += num_cnt
-            num_cnt = 0
-        minus = True
     else:
-        num += i
+        num = i + num
 
-num_cnt += int(num)
-
-if minus:
-    result -= num_cnt
-else:
-    result += num_cnt
+# 남아있는 숫자 합산
+result += num_cnt + int(num)
 
 print(result)

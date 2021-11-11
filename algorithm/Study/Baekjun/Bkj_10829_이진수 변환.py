@@ -5,6 +5,7 @@ def binary(N):
         return '0'
     elif N == 1:
         return '1'
+    # 2 로 나눈 나머지가 없는 경우
     if (N % 2 == 0):
         return binary(N/2) + '0'
     elif (N % 2 == 1):

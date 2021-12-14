@@ -16,11 +16,10 @@ for k in range(V):
 
 result = 20000000
 for i in range(V):
-    for j in range(V):
-        if i < j:
-            cycle_dist = graph[i][j] + graph[j][i]
-            if cycle_dist < 10000000:
-                result = min(result, cycle_dist)
+    for j in range(i+1, V):
+        cycle_dist = graph[i][j] + graph[j][i]
+        if cycle_dist < 10000000:
+            result = min(result, cycle_dist)
 
 if result != 20000000:
     print(result)

@@ -27,7 +27,12 @@ for i in range(1, len(steps)):
                     if point > right:
                         dp[i][right][point] = min(dp[i][right][point], pre + temp)
                     elif point < right:
-                        dp[i][point][right] = min(dp[i][right][point], pre + temp)
+                        dp[i][point][right] = min(dp[i][point][right], pre + temp)
+                    print(point)
+                    print(left, right)
+                    for d in dp[i]:
+                        print(d)
+                    print()
 
 if same_check:
     print(2 + len(steps) - 1)

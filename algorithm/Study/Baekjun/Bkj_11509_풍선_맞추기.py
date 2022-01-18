@@ -1,9 +1,8 @@
 N = int(input())
-H = list(map(int, input().split()))
 
 result = 0
 arrows = [0] * (N + 1)
-for i in H:
+for i in map(int, input().split()):
     if not arrows[i]:
         result += 1
     else:

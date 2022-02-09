@@ -15,7 +15,7 @@ def set_oper(arr: list, cnt: int):
             set_oper(turn(arr, i), cnt + 1)
             used[i] = 0
 
-
+# 영역을 네 부분으로 나누어서 회전 진행
 def turn(arr: list, idx: int):
     new_arr = copy.deepcopy(arr)
     r, c, s = oper[idx]

@@ -3,9 +3,8 @@ input = sys.stdin.readline
 
 N, M = map(int, input().split())
 examiner_lst = [int(input()) for _ in range(N)]
-examiner_lst.sort()
 
-start, end = 1, M * examiner_lst[0]
+start, end = 1, M * min(examiner_lst)
 
 while True:
     if start >= end:

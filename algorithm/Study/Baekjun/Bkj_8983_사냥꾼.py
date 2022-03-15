@@ -19,7 +19,7 @@ def find_station_idx(target: int) -> int:
 
 M, N, L = MIIS()
 stations = sorted(list(MIIS()))
-animals = sorted([tuple(MIIS()) for _ in range(N)])
+animals = [tuple(MIIS()) for _ in range(N)]
 result = 0
 
 for a, b in animals:

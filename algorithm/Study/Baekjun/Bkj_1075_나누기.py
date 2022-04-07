@@ -6,4 +6,5 @@ while True:
     if a % F == 0:
         break
     a += 1
+    
 print(str(a)[-2:])

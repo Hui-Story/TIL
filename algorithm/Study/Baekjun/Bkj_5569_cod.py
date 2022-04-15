@@ -9,11 +9,11 @@ for i in range(h):
         if i + 1 < h:
             MAP[i + 1][j][0] += MAP[i][j][0]
         if i + 1 < h:
-            MAP[i + 1][j][0] += MAP[i][j - 1][1]
+            MAP[i + 1][j][0] += sum(MAP[i][j - 1])
         if j + 1 < w:
             MAP[i][j + 1][1] += MAP[i][j][1]
         if j + 1 < w:
-            MAP[i][j + 1][1] += MAP[i - 1][j][0]
+            MAP[i][j + 1][1] += sum(MAP[i - 1][j])
 
 for i in MAP:
     print(i)

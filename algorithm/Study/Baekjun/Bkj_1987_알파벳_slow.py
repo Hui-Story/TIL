@@ -1,5 +1,4 @@
 import sys
-from collections import defaultdict
 input = sys.stdin.readline
 
 def dfs(x, y, cnt):
@@ -9,7 +8,7 @@ def dfs(x, y, cnt):
         nx = x + dx[d]
         ny = y + dy[d]
         if 0 <= nx < R and 0 <= ny < C:
-            alphabet = MAP[nx][ny]
+            alphabet = ord(MAP[nx][ny]) - 65
             if not alphabet_check[alphabet]:
                 alphabet_check[alphabet] = 1
                 dfs(nx, ny, cnt + 1)
@@ -19,8 +18,8 @@ def dfs(x, y, cnt):
 R, C = map(int, input().split())
 MAP = [input().strip() for _ in range(R)]
 dx, dy = (1, 0, -1, 0), (0, 1, 0, -1)
-alphabet_check = defaultdict(int)
-alphabet_check[MAP[0][0]] = 1
+alphabet_check = [0] * 26
+alphabet_check[ord(MAP[0][0]) - 65] = 1
 result = 0
 
 dfs(0, 0, 1)

@@ -4,6 +4,7 @@ input = sys.stdin.readline
 N, M, K = map(int, input().split())
 MAP = [list(map(int, input().split())) for _ in range(N)]
 SMAP = [[0] * M for _ in range(N)]
+d_idx = 0
 dx, dy = (0, 1, 0, -1), (1, 0, -1, 0)
 
 deq = collections.deque()

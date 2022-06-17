@@ -4,14 +4,14 @@ input = sys.stdin.readline
 N = int(input())
 logs = [tuple(map(int, input().split())) for _ in range(N)]
 balance = 0
-max_diff = 0
+max_balance = 0
 charge_lst = []
 
 for a, b in logs:
     if a < 0:
         if -a > balance:
+            max_balance = max(max_balance, b)
             diff = b - balance
-            max_diff = max(max_diff, diff)
             charge_lst.append(diff - a)
         else:
             if b != balance - (-a):
@@ -28,12 +28,12 @@ if not charge_lst:
 else:
     charge_gcd = math.gcd(*charge_lst)
     if (9 * (10 ** 18) < charge_gcd):
-        while charge_gcd > max_diff:
+        while charge_gcd > max_balance:
             num = 2
             while not (charge_gcd % num) and num < charge_gcd:
                 num += 1
             charge_gcd //= num
-    if charge_gcd > max_diff:
+    if charge_gcd > max_balance:
         print(charge_gcd)
     else:
         print(-1)

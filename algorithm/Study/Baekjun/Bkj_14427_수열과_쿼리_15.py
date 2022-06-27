@@ -24,14 +24,21 @@ class SegmentTree:
             self.find_node_index(node * 2, start, mid)
             self.find_node_index(node * 2 + 1, mid + 1, end)
     
-    def update(self, i: int, node: int) -> None:
+    def update(self, node: int) -> None:
         while node:
-            self.tree[node] = min(self.tree[node * 2], self.tree[node * 2 + 1])
+            left, right = self.A[self.tree[node * 2]], self.A[self.tree[node * 2 + 1]]
+            if self.A[self.tree[node]] >= min(left, right) or self.tree[node] == 0:
+                if left == right:
+                    self.tree[node] = min(self.tree[node * 2], self.tree[node * 2 + 1])
+                elif left < right:
+                    self.tree[node] = self.tree[node * 2]
+                else:
+                    self.tree[node] = self.tree[node * 2 + 1]
             node //= 2
 
-    
+
 N = int(input())
-A = list(MIIS())
+A = [0] + list(MIIS())
 segment_tree = SegmentTree(N, A)
 M = int(input())
 
@@ -39,8 +46,8 @@ for _ in range(M):
     query = list(MIIS())
     if query[0] == 1:
         i, v = query[1:]
-        segment_tree.A[i - 1] = v
+        segment_tree.A[i] = v
         segment_tree.tree[segment_tree.node_index[i]] = i
-        segment_tree.update(i, segment_tree.node_index[i] // 2)
+        segment_tree.update(segment_tree.node_index[i] // 2)
     else:
-        print(segment_tree.tree[0])
+        print(segment_tree.tree[1])

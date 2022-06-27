@@ -27,13 +27,13 @@ class SegmentTree:
     def update(self, node: int) -> None:
         while node:
             left, right = self.A[self.tree[node * 2]], self.A[self.tree[node * 2 + 1]]
-            if self.A[self.tree[node]] >= min(left, right) or self.tree[node] == 0:
-                if left == right:
-                    self.tree[node] = min(self.tree[node * 2], self.tree[node * 2 + 1])
+            if self.tree[node] == 0 or self.A[self.tree[node]] >= min(left, right):
+                if left > right:
+                    self.tree[node] = self.tree[node * 2 + 1]
                 elif left < right:
                     self.tree[node] = self.tree[node * 2]
                 else:
-                    self.tree[node] = self.tree[node * 2 + 1]
+                    self.tree[node] = min(self.tree[node * 2], self.tree[node * 2 + 1])
             node //= 2
 
 
@@ -45,9 +45,8 @@ M = int(input())
 for _ in range(M):
     query = list(MIIS())
     if query[0] == 1:
-        i, v = query[1:]
+        q, i, v = query
         segment_tree.A[i] = v
-        segment_tree.tree[segment_tree.node_index[i]] = i
         segment_tree.update(segment_tree.node_index[i] // 2)
     else:
         print(segment_tree.tree[1])

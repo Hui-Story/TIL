@@ -39,7 +39,6 @@ find_index(1, 1, N)
 for _ in range(M):
     f, a, b = map(int, input().split())
     if f == 0:
-        # 
         if a > b:
             a, b = b, a
         print(query(1, 1, N, a, b))

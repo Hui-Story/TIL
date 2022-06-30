@@ -3,6 +3,7 @@ from typing import Tuple, List
 
 input = sys.stdin.readline
 
+# S, F 위치 파악 / g 주변은 h 로 변경
 def check_map() -> Tuple[int]:
     global MAP
     sx = sy = ex = ey = 0
@@ -36,6 +37,7 @@ def dijkstra(MAP: List[List[int]], sx: int, sy: int, ex: int, ey: int) -> List[i
             if 0 <= nx < N and 0 <= ny < M:
                 new_dist = now_dist
                 block = MAP[nx][ny]
+                # h 는 10000 번 이상 거치지 않기 때문에 10000 단위로 구분
                 if block == 'g':
                     new_dist += 10000
                 elif block == 'h':
@@ -51,4 +53,5 @@ dx, dy = (1, 0, -1, 0), (0, 1, 0, -1)
 sx, sy, ex, ey = check_map()
 
 answer = dijkstra(MAP, sx, sy, ex, ey)
+# 10000 단위로 구분하여 출력
 print(answer // 10000, answer % 10000)

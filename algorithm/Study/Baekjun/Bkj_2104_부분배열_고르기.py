@@ -11,14 +11,14 @@ class SegmentTree:
         self.A = A
         h = math.ceil(math.log2(N))
         tree_size = 1 << (h + 1)
-        self.tree = [[0, 0] for _ in range(tree_size)]
+        self.tree = [[0, 0] for _ in range(tree_size)]  # [구간 합, 최솟값 인덱스] 저장
         self.max_score = 0
         self.find_node(1, 1, N)
     
     def find_node(self, node: int, start: int, end: int) -> None:
         if start == end:
             self.tree[node][0] = self.A[start]
-            self.tree[node][1] = start
+            self.tree[node][1] = start  # 최솟값의 인덱스 저장
             self.update(node // 2)
         else:
             mid = (start + end) // 2
@@ -27,7 +27,9 @@ class SegmentTree:
     
     def update(self, node: int) -> None:
         while node:
+            # 구간 합 갱신
             self.tree[node][0] = self.tree[node * 2][0] + self.tree[node * 2 + 1][0]
+            # 최솟값 인덱스 갱신
             left, right = self.tree[node * 2][1], self.tree[node * 2 + 1][1]
             if self.A[left] <= self.A[right]:
                 self.tree[node][1] = left
@@ -43,6 +45,7 @@ class SegmentTree:
         mid = (start + end) // 2
         left_query = self.query(node * 2, start, mid, left, right)
         right_query = self.query(node * 2 + 1, mid + 1, end, left, right)
+        # 구간의 최솟값 인덱스 산출
         if self.A[left_query[1]] <= self.A[right_query[1]]:
             min_idx = left_query[1]
         else:
@@ -53,6 +56,7 @@ class SegmentTree:
         deq = collections.deque()
         deq.append((left, right))
 
+        # 분할만 진행하며 구간 최댓값 갱신
         while deq:
             l, r = deq.popleft()
             if l > r:
@@ -64,7 +68,7 @@ class SegmentTree:
 
 
 N = int(input())
-A = [float('inf')] + list(MIIS())
+A = [float('inf')] + list(MIIS())  # 더미로 최댓값 입력 (query 에서 예외처리)
 segment_tree = SegmentTree(N, A)
 
 segment_tree.divide(1, N)

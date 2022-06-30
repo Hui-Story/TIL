@@ -11,7 +11,7 @@ class SegmentTree:
         h = math.ceil(math.log2(N))
         tree_size = 1 << (h + 1)
         self.tree = [0] * tree_size
-        self.node_index = [0] * (N + 1)
+        self.node_index = [0] * (N + 1)  # 수열의 노드 인덱스 저장
         self.find_node_index(1, 1, N)
     
     def find_node_index(self, node: int, start: int, end: int) -> None:
@@ -29,7 +29,8 @@ class SegmentTree:
             return 0
         if left <= start and end <= right:
             return self.tree[node]
-        return self.query(node * 2, start, (start + end) // 2, left, right) + self.query(node * 2 + 1, (start + end) // 2 + 1, end, left, right)
+        mid = (start + end) // 2
+        return self.query(node * 2, start, mid, left, right) + self.query(node * 2 + 1, mid + 1, end, left, right)
         
     def update(self, node: int) -> None:
         while node:
@@ -44,6 +45,7 @@ for _ in range(Q):
     x, y, a, b = MIIS()
     if x > y:
         x, y = y, x
+    # 구간 합을 출력한 뒤 수 변경
     print(segment_tree.query(1, 1, N, x, y))
     segment_tree.tree[segment_tree.node_index[a]] = b
     segment_tree.update(segment_tree.node_index[a] // 2)

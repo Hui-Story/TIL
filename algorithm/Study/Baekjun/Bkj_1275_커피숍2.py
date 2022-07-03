@@ -14,7 +14,7 @@ class SegmentTree:
         self.node_index = [0] * (N + 1)  # 수열의 노드 인덱스 저장
         self.node_init(1, 1, N)
 
-    def node_init(self, node: int, start: int, end: int) -> None:
+    def node_init(self, node: int, start: int, end: int) -> int:
         if start == end:
             self.node_index[start] = node
             self.tree[node] = self.array[start]

@@ -12,14 +12,17 @@ def binary_solve(l: int, r: int) -> None:
         mid: int = (l + r) // 2
         current_groups: Groups = count_group(mid)
         groups_count: int = len(current_groups)
+        # 그룹 수 부족 -> 최댓값을 낮춤 & 임의로 그룹을 쪼개는 경우 체크
         if groups_count < M:
             r = mid - 1
             new_groups = check(current_groups, groups_count)
             if len(new_groups) == M:
                 answer = mid
                 groups = new_groups[:]
+        # 그룹 수 과다 -> 최댓값을 높임
         elif groups_count > M:
             l = mid + 1
+        # 최댓값 갱신
         else:
             r = mid - 1
             answer = mid
@@ -28,6 +31,7 @@ def binary_solve(l: int, r: int) -> None:
     print(answer)
     print(*groups)
 
+# 최소 그룹 수 카운트
 def count_group(mid: int) -> Groups:
 
     groups: Groups = []
@@ -47,6 +51,7 @@ def count_group(mid: int) -> Groups:
     
     return groups
 
+# 그룹을 임의로 쪼개서 수 맞추기
 def check(groups: Groups, groups_count: int) -> Groups:
     
     new_groups: Groups = []

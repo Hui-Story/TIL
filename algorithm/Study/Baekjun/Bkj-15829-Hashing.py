@@ -1,0 +1,12 @@
+import sys
+
+input = sys.stdin.readline
+
+L = int(input())
+string = input().strip()
+answer = 0
+
+for i in range(L):
+    answer += (ord(string[i]) - 96) * (31 ** i)
+    
+print(answer % 1234567891)

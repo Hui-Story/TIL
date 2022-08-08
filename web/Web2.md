@@ -45,7 +45,7 @@
 }
 ```
 
-> ![image-20210812090918398](Web2.assets/image-20210812090918398.png)
+> ![image-20210812090918398](https://user-images.githubusercontent.com/87461594/183397582-a5f2b3ed-7b1a-4d20-bb3b-3c6bf7308fd1.png)
 
 ```html
 <!-- 예시 2 -->
@@ -81,7 +81,7 @@
 </style>
 ```
 
->![image-20210812091154642](Web2.assets/image-20210812091154642.png)
+>![image-20210812091154642](https://user-images.githubusercontent.com/87461594/183397623-5e640031-cde2-4725-8e21-7129e8069e20.png)
 
 ```html
 <!-- 예시 3 -->
@@ -102,7 +102,7 @@
 </style>
 ```
 
-> ![image-20210812091323124](Web2.assets/image-20210812091323124.png)
+> ![image-20210812091323124](https://user-images.githubusercontent.com/87461594/183397629-4fcea298-be03-43b4-a262-f0955edb6992.png)
 
 ### Float clear
 
@@ -146,7 +146,7 @@
 </style>
 ```
 
-> ![image-20210812092657097](Web2.assets/image-20210812092657097.png)
+> ![image-20210812092657097](https://user-images.githubusercontent.com/87461594/183397633-0c300af5-a945-415e-99a9-ce444941e8cf.png)
 
 ### Float 정리
 
@@ -178,7 +178,7 @@
 > · main axis (메인축)  
 > · cross axis (교차축)
 
-![image-20210812094235426](Web2.assets/image-20210812094235426.png)
+![image-20210812094221703](https://user-images.githubusercontent.com/87461594/183397733-a465eb35-642e-4176-a1a3-3ea494de2aba.png)
 
 ### Flexbox의 구성 요소
 
@@ -226,11 +226,11 @@
 
 ##### · flexbox는 단방향 레이아웃이기 때문
 
->  ![image-20210812095456809](Web2.assets/image-20210812095456809.png)
+>  ![image-20210812095456809](https://user-images.githubusercontent.com/87461594/183397781-3ace542b-e45a-4297-b1c3-f4c2c27d50c7.png)
 
 ### justify & align
 
->  ![image-20210812095518690](Web2.assets/image-20210812095518690.png)
+>  ![image-20210812095518690](https://user-images.githubusercontent.com/87461594/183397777-324ef06f-d203-43ee-b7d6-88d15a0a7fd2.png)
 
 ### content & items & self
 
@@ -294,7 +294,7 @@
 
 ##### · CSS 그대로 사용
 
-> ![image-20210812100904682](Web2.assets/image-20210812100904682.png)
+> ![image-20210812100904682](https://user-images.githubusercontent.com/87461594/183397873-13c1e700-2afa-4b43-b4c2-29394d5b1dc5.png)
 
 ##### · flex 적용
 
@@ -307,7 +307,7 @@
 </style>
 ```
 
-> ![image-20210812101009631](Web2.assets/image-20210812101009631.png)
+> ![image-20210812101009631](https://user-images.githubusercontent.com/87461594/183397914-8e69ea97-21c9-41ed-a2a4-cbabb57e868b.png)
 
 ##### · flex-wrap
 
@@ -324,7 +324,7 @@
 </style>
 ```
 
-> ![image-20210812101202978](Web2.assets/image-20210812101202978.png)
+> ![image-20210812101208972](https://user-images.githubusercontent.com/87461594/183398003-9f2a43ba-9945-4ad9-b580-60d1731e8b38.png)
 
 ##### · flex-direction
 
@@ -345,7 +345,7 @@
 </style>
 ```
 
-> ![image-20210812101403289](Web2.assets/image-20210812101403289.png)
+> ![image-20210812101403289](https://user-images.githubusercontent.com/87461594/183398007-8098234f-f02b-4214-bfb7-5840e4dec633.png)
 
 ##### · flex-flow
 
@@ -378,7 +378,7 @@
 </body>
 ```
 
-> ![image-20210812101954030](Web2.assets/image-20210812101954030.png)
+> ![image-20210812101954030](https://user-images.githubusercontent.com/87461594/183398009-5be9e7c5-568e-486b-9f76-486559b03037.png)
 
 ##### · justify-content
 
@@ -401,7 +401,7 @@
 </style>
 ```
 
-> ![image-20210812102208006](Web2.assets/image-20210812102208006.png)
+> ![image-20210812102208006](https://user-images.githubusercontent.com/87461594/183398012-95c5c615-27fe-4ef1-883b-d5086dcfe969.png)
 
 ##### · align-items
 
@@ -422,7 +422,7 @@
 </style>
 ```
 
-> ![image-20210812102731574](Web2.assets/image-20210812102731574.png)
+> ![image-20210812102731574](https://user-images.githubusercontent.com/87461594/183398017-92f2b5cc-ea42-4c8a-a961-eb24a6cd5144.png)
 
 ##### · justify-content & align-items
 
@@ -436,7 +436,7 @@
 </style>
 ```
 
-> ![image-20210812105002914](Web2.assets/image-20210812105002914.png)
+> ![image-20210812105002914](https://user-images.githubusercontent.com/87461594/183398022-736e5dd8-2d98-44bf-8a36-05081b069d5f.png)
 
 ### flex item 개별 스타일링
 
@@ -455,7 +455,7 @@
 </style>
 ```
 
-> ![image-20210812105128116](Web2.assets/image-20210812105128116.png)
+> ![image-20210812105128116](https://user-images.githubusercontent.com/87461594/183398023-c21c56f3-e5a2-4aec-98e0-3ca06c9bf251.png)
 >
 > 
 
@@ -480,7 +480,7 @@
 </style>
 ```
 
-> ![image-20210812105246510](Web2.assets/image-20210812105246510.png)
+> ![image-20210812105246510](https://user-images.githubusercontent.com/87461594/183398027-4acf1c36-ea82-4d50-b090-2fcaffa7d154.png)
 
 ```css
 <style>
@@ -509,11 +509,11 @@
 </style>
 ```
 
-> ![image-20210812105324932](Web2.assets/image-20210812105324932.png)
+> ![image-20210812105324932](https://user-images.githubusercontent.com/87461594/183398030-922d0478-9ec0-404f-b9ee-4e7bf84b8a85.png)
 
 ### Can I Use
 
-> ![image-20210812105806227](Web2.assets/image-20210812105806227.png)
+> ![image-20210812105806227](https://user-images.githubusercontent.com/87461594/183398193-764d2ddc-e4c0-43da-92b1-758d414af444.png)
 
 ### 정리
 
@@ -580,15 +580,15 @@
 
 > The world most popular front-end open source
 
-![image-20210812123337775](Web2.assets/image-20210812123337775.png)
+![image-20210812123337775](https://user-images.githubusercontent.com/87461594/183398198-07595043-827f-4993-9406-1c3ccfbd8785.png)
 
-![image-20210812123401734](Web2.assets/image-20210812123401734.png)
+![image-20210812123401734](https://user-images.githubusercontent.com/87461594/183398294-f30c2664-b261-40bf-a4f4-2e2e8cd1b503.png)
 
 ### Bootstrap CSS 다운로드로 사용
 
 https://getbootstrap.kr/docs/5.1/getting-started/download/
 
-> ![image-20210812124528666](Web2.assets/image-20210812124528666.png)
+> ![image-20210812124528666](https://user-images.githubusercontent.com/87461594/183398368-bf428b37-9c8f-4bb1-a900-d910334378cf.png)
 
 ```html
 <head>
@@ -608,7 +608,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 > · 개별 end-user의 가까운 서버를 통해 빠르게 전달 가능(지리적 이점)  
 > · 외부 서버를 활용함으로써 본인 서버의 부하가 적어짐
 
-> ![image-20210812125837945](Web2.assets/image-20210812125837945.png)
+> ![image-20210812125837945](https://user-images.githubusercontent.com/87461594/183398421-db1c3381-92c8-41d6-90ee-b00bc9a2a33b.png)
 
 ```html
 <head>
@@ -680,7 +680,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 
 ### color
 
-> ![image-20210812153635202](Web2.assets/image-20210812153635202.png)
+> ![image-20210812153635202](https://user-images.githubusercontent.com/87461594/183398426-dd0d3627-605e-434c-969c-7b533105ad82.png)
 
 ### Bootstrap 실습
 
@@ -694,7 +694,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 <div class="box ms-auto">ms-auto, 오른쪽 정렬</div>
 ```
 
-> ![image-20210812154415480](Web2.assets/image-20210812154415480.png)
+> ![image-20210812154415480](https://user-images.githubusercontent.com/87461594/183398430-a265207c-37c6-4555-8c5b-82f69f148932.png)
 
 ```css
 <!-- 실습 2 -->
@@ -707,7 +707,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 <p class="text-danger">이건 빨간색 글씨</p>
 ```
 
-> ![image-20210812154548783](Web2.assets/image-20210812154548783.png)
+> ![image-20210812154548783](https://user-images.githubusercontent.com/87461594/183398432-3db9e8ff-37b7-4771-817e-7140a90e1788.png)
 
 ```css
 <!-- 실습 3 -->
@@ -723,7 +723,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 <p class="fst-italic">Italic text.</p>
 ```
 
-> ![image-20210812154804356](Web2.assets/image-20210812154804356.png)
+> ![image-20210812154804356](https://user-images.githubusercontent.com/87461594/183398434-c65b0195-f3c4-415a-8c6d-0b6d2f2f9fc9.png)
 
 ```css
 <!-- 실습 4 -->
@@ -737,7 +737,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 <div class="box bg-success d-md-none d-xl-block">보이나?? 안보이나??</div>
 ```
 
-> ![image-20210812160517208](Web2.assets/image-20210812160517208.png)
+> ![image-20210812160517208](https://user-images.githubusercontent.com/87461594/183398435-20e5c3d2-3ee3-4b93-8801-b54d51b7c3f9.png)
 
 ```css
 <!-- 실습 5 -->
@@ -747,13 +747,13 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 <div class="box fixed-bottom">fixed-bottom</div>
 ```
 
-> ![image-20210812160608168](Web2.assets/image-20210812160608168.png)
+> ![image-20210812160608168](https://user-images.githubusercontent.com/87461594/183398439-64c5dc51-a46d-4844-afac-f17238e8bf9d.png)
 
 ### Responsive Web
 
 > ##### · 같은 컨텐츠를 보는 각기 다른 디바이스
 >
-> ##### ![image-20210812160700851](Web2.assets/image-20210812160700851.png)
+> ##### ![image-20210812160700851](https://user-images.githubusercontent.com/87461594/183398442-0d9f85ad-d94d-49d5-9cb5-bb990dca91e9.png)
 
 ##### · 다양한 화면 크기를 가진 디바이스들이 등장함에 따라 responsive web design 개념이 등장
 
@@ -853,7 +853,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 </div>
 ```
 
-> ![image-20210812162446593](Web2.assets/image-20210812162446593.png)
+> ![image-20210812162446593](https://user-images.githubusercontent.com/87461594/183398444-250bf76a-e27e-46fc-bcbb-312ee8d4989e.png)
 
 ```html
 <!-- 연습 2 -->
@@ -882,7 +882,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 </div>
 ```
 
-> ![image-20210812172404502](Web2.assets/image-20210812172404502.png)
+> ![image-20210812172404502](https://user-images.githubusercontent.com/87461594/183398448-02651845-fe72-4ad4-9865-807aa9093358.png)
 
 ```html
 <!-- 연습 3 -->
@@ -895,7 +895,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 <hr>
 ```
 
-> ![image-20210812172501095](Web2.assets/image-20210812172501095.png)
+> ![image-20210812172501095](https://user-images.githubusercontent.com/87461594/183398449-28c02518-1b01-4eb5-9ba6-e2a894cdcd7d.png)
 
 ```html
 <!-- 연습 4 -->
@@ -932,7 +932,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 <hr>
 ```
 
-> ![image-20210812211034285](Web2.assets/image-20210812211034285.png)
+> ![image-20210812211034285](https://user-images.githubusercontent.com/87461594/183398450-1b57d46b-032c-43f2-9fd1-ce5dbb375d57.png)
 
 ```html
 <!-- 연습 5 -->
@@ -944,7 +944,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 <hr>
 ```
 
-> ![image-20210812211152653](Web2.assets/image-20210812211152653.png)
+> ![image-20210812211152653](https://user-images.githubusercontent.com/87461594/183398452-44e72b31-275f-421c-a288-2d203b79f639.png)
 
 ```html
 <!-- 연습 6 -->
@@ -956,7 +956,7 @@ https://getbootstrap.kr/docs/5.1/getting-started/download/
 </div>
 ```
 
-> ![image-20210812211258102](Web2.assets/image-20210812211258102.png)
+> ![image-20210812211258102](https://user-images.githubusercontent.com/87461594/183398455-c9e4de81-1601-4b29-a21a-30c4b662bcf3.png)
 
 
 

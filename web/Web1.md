@@ -26,7 +26,7 @@
 
 ### 현재의 웹 표준
 
-![image-20210803090932430](Web1.assets/image-20210803090932430.png)
+![image-20210803090932430](https://user-images.githubusercontent.com/87461594/183396102-d7ddc420-195e-44f2-90cd-b5c72f5220c4.png)
 
 
 
@@ -70,15 +70,15 @@
 
 ### [기본 구조] html 요소
 
-![image-20210803092247955](Web1.assets/image-20210803092247955.png)
+![image-20210803092247955](https://user-images.githubusercontent.com/87461594/183396151-037c7085-52ee-4acd-b53c-a0d9f3ea1735.png)
 
 ### [기본 구조] head 요소
 
-![image-20210803092315603](Web1.assets/image-20210803092315603.png)
+![image-20210803092315603](https://user-images.githubusercontent.com/87461594/183396154-7bfc0142-0703-4928-af63-8f0aff1c1f3f.png)
 
 ### [기본 구조] body 요소
 
-![image-20210803092345973](Web1.assets/image-20210803092345973.png)
+![image-20210803092345973](https://user-images.githubusercontent.com/87461594/183396156-c83f92cc-5194-4728-b4a2-1e436ce93ef5.png)
 
 ### 메타 데이터를 표현하는 새로운 규약, Open Graph Protocol
 
@@ -86,13 +86,13 @@
 
 ##### · 페이스북에서 만들었으며, 메타정보에 해당한느 제목, 설명 등을 쓸 수 있도록 정의
 
-![image-20210803151057436](Web1.assets/image-20210803151057436.png)
+![image-20210803151057436](https://user-images.githubusercontent.com/87461594/183396330-6bfb0c1f-91b7-4952-a579-6d70d278a971.png)
 
 ### DOM (Document Object Model) 트리
 
-![image-20210803151201681](Web1.assets/image-20210803151201681.png)
+![image-20210803151201681](https://user-images.githubusercontent.com/87461594/183396386-045833a4-70aa-44f3-a92f-2c137a118d6c.png)
 
-![image-20210803151229882](Web1.assets/image-20210803151229882.png)
+![image-20210803151239825](https://user-images.githubusercontent.com/87461594/183396429-b8fe2f3d-4e4f-420b-a202-0b932e6290b8.png)
 
 ##### · DOM은 문서의 구조화된 표현(Structured Representation)을 제공하며, 프로그래밍 언어가 DOM 구조에 접근할 수 있는 방법을 제공하여 그들이 문서 구조, 스타일 내용 등을 변경 할 수 있게 도움
 
@@ -191,7 +191,7 @@
 
 ### 인라인 / 블록 요소
 
-![image-20210809131519926](Web1.assets/image-20210809131519926.png)
+![image-20210809131519926](https://user-images.githubusercontent.com/87461594/183396514-df5adade-e06e-4b17-9fe2-329d1bbcc566.png)
 
 ### 그룹 컨텐츠
 
@@ -245,7 +245,7 @@ https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input
 
 ### 마크업 실습
 
-> ![image-20210809134737141](Web1.assets/image-20210809134737141.png)
+> ![image-20210809134737141](https://user-images.githubusercontent.com/87461594/183396556-05b4f1a4-f54f-4781-b442-23090a67ba53.png)
 
 ```html
 <header>
@@ -317,7 +317,7 @@ h1 {
 </head>
 ```
 
-> ![image-20210809171224936](Web1.assets/image-20210809171224936.png)
+> ![image-20210809171224936](https://user-images.githubusercontent.com/87461594/183396618-db3366cd-e2e7-4713-abd2-7a5fb604d525.png)
 
 ##### · 외부 참조 (link file) : 외부 CSS 파일을 \<head\>내 \<link\>를 통해 불러오기
 
@@ -327,7 +327,7 @@ h1 {
 </head>
 ```
 
-> ![image-20210809171232897](Web1.assets/image-20210809171232897.png)
+> ![image-20210809171425386](https://user-images.githubusercontent.com/87461594/183396638-cb944422-347b-41d3-87a1-324375b29e66.png)
 
 
 
@@ -607,11 +607,11 @@ p + span {
 
 ### Box model 구성
 
-![image-20210810091319862](Web1.assets/image-20210810091319862.png)
+![image-20210810091319862](https://user-images.githubusercontent.com/87461594/183396727-bec91998-8b92-40b3-9333-7eaa4f52fa54.png)
 
 ##### · margin
 
-![image-20210810091406253](Web1.assets/image-20210810091406253.png)
+![image-20210810091406253](https://user-images.githubusercontent.com/87461594/183396748-c8fbe027-33c1-4208-b70d-b7bf0dfa5372.png)
 
 ```css
 .margin {
@@ -624,7 +624,7 @@ p + span {
 
 ##### · padding
 
-![image-20210810091735861](Web1.assets/image-20210810091735861.png)
+![image-20210810091807999](https://user-images.githubusercontent.com/87461594/183396875-5e4f0f74-913a-4c02-a152-c73b54fec648.png)
 
 ```css
 .margin-padding {
@@ -635,11 +635,11 @@ p + span {
 
 ##### · margin/padding - shorthand 표현
 
-![image-20210810092045954](Web1.assets/image-20210810092045954.png)
+![image-20210810092045954](https://user-images.githubusercontent.com/87461594/183396892-20c7f969-9639-420f-9ac7-1b809e45c192.png)
 
 ##### · border
 
-![image-20210810091820526](Web1.assets/image-20210810091820526.png)
+![image-20210810091820526](https://user-images.githubusercontent.com/87461594/183396903-886e87ba-897a-4c1a-ad1c-02ae3217a948.png)
 
 ```css
 .border {
@@ -685,7 +685,7 @@ p + span {
 </style>
 ```
 
-> ![image-20210810093536819](Web1.assets/image-20210810093536819.png)
+> ![image-20210810093536819](https://user-images.githubusercontent.com/87461594/183396974-c4a0ddeb-bb6c-474e-8555-0c10716e0a70.png)
 
 ### Box size 실습
 
@@ -714,15 +714,15 @@ p + span {
 </style>
 ```
 
-> ![image-20210810094741994](Web1.assets/image-20210810094741994.png)
+> ![image-20210810094741994](https://user-images.githubusercontent.com/87461594/183396995-71c2b9f3-81d6-4bc4-b729-b330d6087631.png)
 >
 > [ box-sizing :  content-box ]
 >
-> ![image-20210810095122242](Web1.assets/image-20210810095122242.png)
+> ![image-20210810095122242](https://user-images.githubusercontent.com/87461594/183396999-0ff6c3e9-2725-4cd7-8e53-707ff519b0b5.png)
 >
 > [ box-sizing :  border-box ]
 >
-> ![image-20210810095139923](Web1.assets/image-20210810095139923.png)
+> ![image-20210810095139923](https://user-images.githubusercontent.com/87461594/183397006-c368d15b-9a55-4bca-b30a-f46b06bad400.png)
 
 ##### · 기본적으로 모든 요소의 box-sizing은 content-box
 
@@ -732,7 +732,7 @@ p + span {
 
 ​	· 그 경우 box-sizing을 border-box로 설정
 
-> ![image-20210810095155047](Web1.assets/image-20210810095155047.png)
+> ![image-20210810095155047](https://user-images.githubusercontent.com/87461594/183397079-a9c1986b-82f8-4afe-884d-b3fadb8d7ff7.png)
 
 ### 마진 상쇄
 
@@ -775,23 +775,23 @@ p + span {
 
 > 기본은 너비의 100%
 >
-> ![image-20210810134516718](Web1.assets/image-20210810134516718.png)
+> ![image-20210810134516718](https://user-images.githubusercontent.com/87461594/183397125-3e4a40d8-6861-41fe-b8e9-691a94ab690d.png)
 >
-> ![image-20210810134526415](Web1.assets/image-20210810134526415.png)
+> ![image-20210810134526415](https://user-images.githubusercontent.com/87461594/183397144-9eec5dd5-7496-490b-9077-6648baceb404.png)
 
 ### Inline
 
 > 컨텐츠 영역 만큼만 차지
 >
-> ![image-20210810134605630](Web1.assets/image-20210810134605630.png)
+> ![image-20210810134605630](https://user-images.githubusercontent.com/87461594/183397184-914d1ba4-15c7-4878-86e5-6273a32d9ab8.png)
 >
-> ![image-20210810134612532](Web1.assets/image-20210810134612532.png)
+> ![image-20210810134612532](https://user-images.githubusercontent.com/87461594/183397197-d3bb1bff-4b59-4861-8a95-8dd4cbbd5205.png)
 >
 > 
 
 ### 속성에 따른 수평 정렬
 
-> ![image-20210810134711514](Web1.assets/image-20210810134711514.png)
+> ![image-20210810134711514](https://user-images.githubusercontent.com/87461594/183397200-dc5f0e00-bc77-45a6-813a-9920af35dec7.png)
 
 ### display - inline-block, none
 
@@ -839,7 +839,7 @@ p + span {
 </style>
 ```
 
-> ![image-20210810135711832](Web1.assets/image-20210810135711832.png)
+> ![image-20210810135711832](https://user-images.githubusercontent.com/87461594/183397250-c7c1853a-3bc1-4922-9b7c-fd47402759f0.png)
 
 
 
@@ -871,7 +871,7 @@ div {
 }
 ```
 
-> ![image-20210810140012254](Web1.assets/image-20210810140012254.png)
+> ![image-20210810140012254](https://user-images.githubusercontent.com/87461594/183397273-d5b1ef8e-d011-4a5a-b691-5b1ab339dfaa.png)
 
 ### relative
 
@@ -883,7 +883,7 @@ div {
 }
 ```
 
-> ![image-20210810140044054](Web1.assets/image-20210810140044054.png)
+> ![image-20210810140044054](https://user-images.githubusercontent.com/87461594/183397279-0beac88c-921a-4dd7-9a92-390702118d48.png)
 
 ### absolute
 
@@ -899,7 +899,7 @@ div {
 }
 ```
 
-> ![image-20210810140129432](Web1.assets/image-20210810140129432.png)
+> ![image-20210810140129432](https://user-images.githubusercontent.com/87461594/183397285-d51a0649-5892-47bd-b8c4-5d1488f3715d.png)
 
 ### fixed
 
@@ -911,13 +911,13 @@ div {
 }
 ```
 
-> ![image-20210810140154195](Web1.assets/image-20210810140154195.png)
+> ![image-20210810140154195](https://user-images.githubusercontent.com/87461594/183397291-1a20eb68-04e1-4a6c-ad06-35e95c8a462f.png)
 
 ### absolute와 relative 비교
 
 ##### · 형에게 top: 100px;을 적용했을 때 absolute와 relative의 차이
 
-![image-20210810140302357](Web1.assets/image-20210810140302357.png)
+![image-20210810140302357](https://user-images.githubusercontent.com/87461594/183397385-afb803d2-6697-40f0-92c7-7ea85f218ac2.png)
 
 ```html
 <body>
@@ -976,11 +976,11 @@ div {
 
 > [ absolute ]
 >
-> ![image-20210810140646810](Web1.assets/image-20210810140646810.png)
+> ![image-20210810140646810](https://user-images.githubusercontent.com/87461594/183397392-be0a1ea0-a200-4a3a-b86b-e10f97b1e5ac.png)
 >
 > [ relative ]
 >
-> ![image-20210810140700726](Web1.assets/image-20210810140700726.png)
+> ![image-20210810140700726](https://user-images.githubusercontent.com/87461594/183397394-3145e79c-c14f-4cb1-a360-860858720a04.png)
 
 ### absolute의 특징
 

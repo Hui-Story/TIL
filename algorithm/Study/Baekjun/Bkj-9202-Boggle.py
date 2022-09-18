@@ -37,31 +37,6 @@ class Trie:
         else:
             return None
 
-    def starts_with(self, prefix: str) -> list[str] or None:
-        current_node = self.head
-        words = []
-
-        for p in prefix:
-            if p in current_node.children:
-                current_node = current_node.children[p]
-            else:
-                return None
-
-        current_node = [current_node]
-        next_node = []
-        while True:
-            for node in current_node:
-                if node.data:
-                    words.append(node.data[0])
-                next_node.extend(list(node.children.values()))
-            if len(next_node) != 0:
-                current_node = next_node
-                next_node = []
-            else:
-                break
-
-        return words
-
 
 def solve() -> None:
     for i in range(4):

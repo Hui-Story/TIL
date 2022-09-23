@@ -21,7 +21,7 @@ class Trie:
             if char not in current_node.children:
                 current_node.children[char] = Node(char)
             current_node = current_node.children[char]
-        current_node.data = (string, len(string))
+        current_node.data = string
 
     def search(self, string: str) -> int:
         current_node = self.head

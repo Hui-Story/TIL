@@ -27,7 +27,7 @@ def play2048(N: int, board: Board) -> int:
                     if board_number != 0:
                         y_idx += 1
                     current_board[x][y_idx] = current_number
-        if step < 10:
+        if step < 5:
             deq.append((step + 1, current_board))
 
         # 우
@@ -45,7 +45,7 @@ def play2048(N: int, board: Board) -> int:
                     if board_number != 0:
                         y_idx -= 1
                     current_board[x][y_idx] = current_number
-        if step < 10:
+        if step < 5:
             deq.append((step + 1, current_board))
 
         # 위
@@ -63,7 +63,7 @@ def play2048(N: int, board: Board) -> int:
                     if board_number != 0:
                         x_idx += 1
                     current_board[x_idx][y] = current_number
-        if step < 10:
+        if step < 5:
             deq.append((step + 1, current_board))
 
         # 아래
@@ -81,7 +81,7 @@ def play2048(N: int, board: Board) -> int:
                     if board_number != 0:
                         x_idx -= 1
                     current_board[x_idx][y] = current_number
-        if step < 10:
+        if step < 5:
             deq.append((step + 1, current_board))
 
     return answer

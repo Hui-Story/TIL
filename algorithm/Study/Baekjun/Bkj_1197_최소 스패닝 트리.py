@@ -1,7 +1,12 @@
 import sys
-input = sys.stdin.readline
 
-def Union(a, b, cost):
+sys.setrecursionlimit(10**6)
+
+input = sys.stdin.readline
+MIIS = lambda: map(int, input().split())
+
+
+def Union(a: int, b: int, cost: int) -> None:
     global V, parent, result
     pa = Find(a)
     pb = Find(b)
@@ -14,13 +19,15 @@ def Union(a, b, cost):
         else:
             parent[pa] = pb
 
-def Find(ch):
+
+def Find(ch: int) -> int:
     if parent[ch] != ch:
         parent[ch] = Find(parent[ch])
     return parent[ch]
 
+
 # cost 가 낮은 순서대로 Union 을 진행
-def Kruskal():
+def Kruskal() -> None:
     i = 0
     # 간선을 V-1 개 연결하고 나면 중지
     while V != 1:
@@ -29,17 +36,18 @@ def Kruskal():
         i += 1
 
 
-V, E = map(int, input().split())
-parent = [i for i in range(V+1)]  # 부모 노드를 자기 자신으로 초기화
-edges = []
-result = 0
+if __name__ == "__main__":
+    V, E = MIIS()
+    parent: list[int] = [i for i in range(V + 1)]  # 부모 노드를 자기 자신으로 초기화
+    edges: list[tuple[int, int, int]] = []
+    result: int = 0
 
-for _ in range(E):
-    A, B, C = map(int, input().split())
-    edges.append((C, A, B))
+    for _ in range(E):
+        A, B, C = MIIS()
+        edges.append((C, A, B))
 
-edges.sort(key=lambda x : x[0])  # C 에 대해 오름차순으로 정렬
+    edges.sort(key=lambda x: x[0])  # C 에 대해 오름차순으로 정렬
 
-Kruskal()
+    Kruskal()
 
-print(result)
+    print(result)
